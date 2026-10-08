@@ -1,0 +1,29 @@
+{
+  "review_date": "2026-10-08",
+  "repository": "https://github.com/kubernetes-sigs/network-policy-api",
+  "commit": "c4572b0f2ba75fe770adea4a207ea2e02b43d538",
+  "scope": "Three selected files, not a repository-wide absence claim",
+  "files": [
+    {
+      "path": "conformance/tests/admin-network-policy-standard-ingress-tcp-rules.go",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/network-policy-api/c4572b0f2ba75fe770adea4a207ea2e02b43d538/conformance/tests/admin-network-policy-standard-ingress-tcp-rules.go",
+      "sha256_utf8_response": "ddb35bb7eba086e2e86b1bbd3e91c77072ed55af7b5669f9da41824fb0bd2343",
+      "lines": 167,
+      "review": "Source inspection only; no test execution"
+    },
+    {
+      "path": "conformance/tests/admin-network-policy-standard-integration.go",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/network-policy-api/c4572b0f2ba75fe770adea4a207ea2e02b43d538/conformance/tests/admin-network-policy-standard-integration.go",
+      "sha256_utf8_response": "c97ef8d8c75ceb7714b7e24cea8cf272e2916fad620649c747bd2305f228e956",
+      "lines": 155,
+      "review": "Source inspection only; no test execution"
+    },
+    {
+      "path": "conformance/utils/kubernetes/helper.go",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/network-policy-api/c4572b0f2ba75fe770adea4a207ea2e02b43d538/conformance/utils/kubernetes/helper.go",
+      "sha256_utf8_response": "208024cb7ab5bba3bcfe4536b63683e2a739bc937c27d2030bf9c40e04393346",
+      "lines": 194,
+      "review": "Source inspection only; no test execution"
+    }
+  ]
+}
