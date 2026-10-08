@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "hash_checks": 46,
+  "corrected_outcome_checks": 18,
+  "traces": 2,
+  "scope": "Known behavior, not novelty or CNI replication"
+}

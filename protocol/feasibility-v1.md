@@ -1,0 +1,3 @@
+# Feasibility amendment v1
+
+Retain v0 failures: legacy table initialization returned permission denied; nft TCP-reset target lacked an explicit TCP match. Add protocol TCP on the reject rule and NET_RAW alongside NET_ADMIN for the legacy control socket. Keep network-none, no host namespaces, no host devices, no published ports, all firewall activity within disposable container network namespaces. These are environment/driver corrections, not changes to expected outcomes. All other v0 protocol provisions remain in force. The added capability does not authorize host firewall changes or external traffic.

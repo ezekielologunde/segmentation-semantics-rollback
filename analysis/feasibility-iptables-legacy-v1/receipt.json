@@ -1,0 +1,29 @@
+{
+  "exit_code": 0,
+  "seconds": 0.9060000000172295,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cap-drop",
+    "ALL",
+    "--cap-add",
+    "NET_ADMIN",
+    "--cap-add",
+    "NET_RAW",
+    "--cpus",
+    "1",
+    "--memory",
+    "256m",
+    "--mount",
+    "type=bind,source=C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\src\\rollback_probe_v1.py,target=/probe.py,readonly",
+    "--mount",
+    "type=bind,source=C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\analysis\\feasibility-iptables-legacy-v1,target=/out",
+    "sha256:f43c6b810318e421fa2338af819b0a2341ca9a09999d4df5b7eb9858cdd13366",
+    "python3",
+    "/probe.py",
+    "iptables-legacy"
+  ]
+}

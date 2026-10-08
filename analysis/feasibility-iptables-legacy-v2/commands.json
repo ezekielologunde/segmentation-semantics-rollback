@@ -1,0 +1,267 @@
+[
+  {
+    "command": [
+      "iptables-legacy",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "iptables v1.8.10 (legacy)\n",
+    "stderr": "",
+    "t_ns": 68339245479894
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-N",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339248063962
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "OUTPUT",
+      "-o",
+      "lo",
+      "-p",
+      "tcp",
+      "--dport",
+      "45001",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "NEW,ESTABLISHED,RELATED,INVALID,UNTRACKED",
+      "-j",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339249789235
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339251185179
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "ESTABLISHED",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339252607015
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339254110036
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68339255628164
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339257258383
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339258290767
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -j ACCEPT\n",
+    "stderr": "",
+    "t_ns": 68339259500015
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339261028826
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "ESTABLISHED",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339262624098
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339263860958
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68339265152966
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339267090595
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339268895130
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -j ACCEPT\n",
+    "stderr": "",
+    "t_ns": 68339269754136
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339271133783
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68339272247616
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68339273409726
+  }
+]

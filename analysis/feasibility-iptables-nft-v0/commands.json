@@ -1,0 +1,85 @@
+[
+  {
+    "command": [
+      "iptables-nft",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "iptables v1.8.10 (nf_tables)\n",
+    "stderr": "",
+    "t_ns": 68219558722391
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-N",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68219561568887
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "OUTPUT",
+      "-o",
+      "lo",
+      "-p",
+      "tcp",
+      "--dport",
+      "45001",
+      "-j",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68219564557202
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68219566784891
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "ESTABLISHED",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68219568700577
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 4,
+    "stdout": "",
+    "stderr": "iptables v1.8.10 (nf_tables):  RULE_APPEND failed (Invalid argument): rule in chain ROLLBACK_STUDY\n",
+    "t_ns": 68219616969952
+  }
+]

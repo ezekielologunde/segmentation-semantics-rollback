@@ -1,0 +1,5 @@
+* text=auto eol=lf
+analysis/** -text
+protocol/feasibility*.md -text
+src/*feasibility*.py -text
+src/rollback_probe*.py -text

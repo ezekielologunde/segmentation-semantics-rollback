@@ -1,0 +1,267 @@
+[
+  {
+    "command": [
+      "iptables-nft",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "iptables v1.8.10 (nf_tables)\n",
+    "stderr": "",
+    "t_ns": 68340024884934
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-N",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340027553074
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "OUTPUT",
+      "-o",
+      "lo",
+      "-p",
+      "tcp",
+      "--dport",
+      "45001",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "NEW,ESTABLISHED,RELATED,INVALID,UNTRACKED",
+      "-j",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340028922145
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340030022731
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "ESTABLISHED",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340031921152
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340033151055
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68340034510893
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340068647066
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340070261405
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -j ACCEPT\n",
+    "stderr": "",
+    "t_ns": 68340072713715
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340096718954
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-m",
+      "conntrack",
+      "--ctstate",
+      "ESTABLISHED",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340098269394
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340099436149
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68340100793421
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340140443760
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-j",
+      "ACCEPT"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340142143377
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -j ACCEPT\n",
+    "stderr": "",
+    "t_ns": 68340143793989
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-F",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340192732846
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-A",
+      "ROLLBACK_STUDY",
+      "-p",
+      "tcp",
+      "-j",
+      "REJECT",
+      "--reject-with",
+      "tcp-reset"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "t_ns": 68340195129651
+  },
+  {
+    "command": [
+      "iptables-nft",
+      "-S",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 0,
+    "stdout": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "stderr": "",
+    "t_ns": 68340197451280
+  }
+]

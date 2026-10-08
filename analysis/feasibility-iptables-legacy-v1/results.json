@@ -1,0 +1,48 @@
+{
+  "backend": "iptables-legacy",
+  "version": "iptables v1.8.10 (legacy)\n",
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "preflight": {
+    "success": true,
+    "error": null,
+    "t_ns": 68255154171728
+  },
+  "initial_fresh": {
+    "success": false,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+    "t_ns": 68255189967715
+  },
+  "allow_session": {
+    "success": true,
+    "error": null,
+    "t_ns": 68255194467647
+  },
+  "restored_session": {
+    "success": false,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+    "t_ns": 68255201117866
+  },
+  "restored_fresh": {
+    "success": false,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+    "t_ns": 68255201189781
+  },
+  "revoked_session": {
+    "success": false,
+    "error": "BrokenPipeError: [Errno 32] Broken pipe",
+    "t_ns": 68255206688250
+  },
+  "revoked_fresh": {
+    "success": false,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+    "t_ns": 68255206759333
+  },
+  "rules_identical": true,
+  "rules": {
+    "initial": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "allow": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -j ACCEPT\n",
+    "restored": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -m conntrack --ctstate ESTABLISHED -j ACCEPT\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n",
+    "revocation": "-N ROLLBACK_STUDY\n-A ROLLBACK_STUDY -p tcp -j REJECT --reject-with tcp-reset\n"
+  },
+  "scope": "Known-behavior local loopback feasibility only"
+}

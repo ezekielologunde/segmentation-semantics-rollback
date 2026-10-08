@@ -1,0 +1,171 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 195B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/zkp-verisbom-audit:ubuntu
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/2] FROM docker.io/library/zkp-verisbom-audit:ubuntu@sha256:9049274e186c7749190fb63840a0c0ca4bac6725d888eb02ff19bd32aee8dc48
+#4 resolve docker.io/library/zkp-verisbom-audit:ubuntu@sha256:9049274e186c7749190fb63840a0c0ca4bac6725d888eb02ff19bd32aee8dc48 0.0s done
+#4 CACHED
+
+#5 [2/2] RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends iptables nftables conntrack
+#5 0.765 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#5 0.962 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#5 1.393 Get:3 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1362 kB]
+#5 1.667 Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#5 1.849 Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#5 2.023 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+#5 2.112 Get:7 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
+#5 2.115 Get:8 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1545 kB]
+#5 2.369 Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1998 kB]
+#5 2.665 Get:10 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#5 2.676 Get:11 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#5 4.841 Get:12 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#5 4.853 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2177 kB]
+#5 5.037 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2166 kB]
+#5 5.307 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1702 kB]
+#5 5.390 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [67.4 kB]
+#5 5.392 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.0 kB]
+#5 5.393 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.0 kB]
+#5 5.395 Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
+#5 6.093 Fetched 33.4 MB in 6s (5895 kB/s)
+#5 6.093 Reading package lists...
+#5 7.027 Reading package lists...
+#5 7.835 Building dependency tree...
+#5 7.990 Reading state information...
+#5 8.205 The following additional packages will be installed:
+#5 8.205   libbsd0 libedit2 libip4tc2 libip6tc2 libjansson4 libmnl0
+#5 8.206   libnetfilter-conntrack3 libnfnetlink0 libnftables1 libnftnl11 libxtables12
+#5 8.207 Suggested packages:
+#5 8.207   firewalld kmod
+#5 8.243 The following NEW packages will be installed:
+#5 8.243   conntrack iptables libbsd0 libedit2 libip4tc2 libip6tc2 libjansson4 libmnl0
+#5 8.244   libnetfilter-conntrack3 libnfnetlink0 libnftables1 libnftnl11 libxtables12
+#5 8.245   nftables
+#5 8.554 0 upgraded, 14 newly installed, 0 to remove and 3 not upgraded.
+#5 8.554 Need to get 1240 kB of archives.
+#5 8.554 After this operation, 5037 kB of additional disk space will be used.
+#5 8.554 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libbsd0 amd64 0.12.1-1build1.1 [41.2 kB]
+#5 8.873 Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libmnl0 amd64 1.0.5-2build1 [12.3 kB]
+#5 8.905 Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libxtables12 amd64 1.8.10-3ubuntu2 [35.7 kB]
+#5 8.990 Get:4 http://archive.ubuntu.com/ubuntu noble/main amd64 libip4tc2 amd64 1.8.10-3ubuntu2 [23.3 kB]
+#5 9.048 Get:5 http://archive.ubuntu.com/ubuntu noble/main amd64 libip6tc2 amd64 1.8.10-3ubuntu2 [23.7 kB]
+#5 9.104 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 libnfnetlink0 amd64 1.0.2-2build1 [14.8 kB]
+#5 9.133 Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 libnetfilter-conntrack3 amd64 1.0.9-6build1 [45.2 kB]
+#5 9.178 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 libnftnl11 amd64 1.2.6-2build1 [66.0 kB]
+#5 9.238 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 iptables amd64 1.8.10-3ubuntu2 [381 kB]
+#5 9.467 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 libedit2 amd64 3.1-20230828-1build1 [97.6 kB]
+#5 9.494 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 libjansson4 amd64 2.14-2build2 [32.8 kB]
+#5 9.502 Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnftables1 amd64 1.0.9-1ubuntu0.1 [359 kB]
+#5 9.573 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 nftables amd64 1.0.9-1ubuntu0.1 [69.8 kB]
+#5 9.597 Get:14 http://archive.ubuntu.com/ubuntu noble/main amd64 conntrack amd64 1:1.4.8-1ubuntu1 [37.9 kB]
+#5 9.706 debconf: delaying package configuration, since apt-utils is not installed
+#5 9.742 Fetched 1240 kB in 1s (922 kB/s)
+#5 9.789 Selecting previously unselected package libbsd0:amd64.
+#5 9.789 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 5727 files and directories currently installed.)
+#5 9.795 Preparing to unpack .../00-libbsd0_0.12.1-1build1.1_amd64.deb ...
+#5 9.814 Unpacking libbsd0:amd64 (0.12.1-1build1.1) ...
+#5 9.886 Selecting previously unselected package libmnl0:amd64.
+#5 9.887 Preparing to unpack .../01-libmnl0_1.0.5-2build1_amd64.deb ...
+#5 9.896 Unpacking libmnl0:amd64 (1.0.5-2build1) ...
+#5 9.965 Selecting previously unselected package libxtables12:amd64.
+#5 9.966 Preparing to unpack .../02-libxtables12_1.8.10-3ubuntu2_amd64.deb ...
+#5 9.976 Unpacking libxtables12:amd64 (1.8.10-3ubuntu2) ...
+#5 10.05 Selecting previously unselected package libip4tc2:amd64.
+#5 10.05 Preparing to unpack .../03-libip4tc2_1.8.10-3ubuntu2_amd64.deb ...
+#5 10.06 Unpacking libip4tc2:amd64 (1.8.10-3ubuntu2) ...
+#5 10.13 Selecting previously unselected package libip6tc2:amd64.
+#5 10.13 Preparing to unpack .../04-libip6tc2_1.8.10-3ubuntu2_amd64.deb ...
+#5 10.14 Unpacking libip6tc2:amd64 (1.8.10-3ubuntu2) ...
+#5 10.21 Selecting previously unselected package libnfnetlink0:amd64.
+#5 10.21 Preparing to unpack .../05-libnfnetlink0_1.0.2-2build1_amd64.deb ...
+#5 10.22 Unpacking libnfnetlink0:amd64 (1.0.2-2build1) ...
+#5 10.29 Selecting previously unselected package libnetfilter-conntrack3:amd64.
+#5 10.29 Preparing to unpack .../06-libnetfilter-conntrack3_1.0.9-6build1_amd64.deb ...
+#5 10.30 Unpacking libnetfilter-conntrack3:amd64 (1.0.9-6build1) ...
+#5 10.38 Selecting previously unselected package libnftnl11:amd64.
+#5 10.38 Preparing to unpack .../07-libnftnl11_1.2.6-2build1_amd64.deb ...
+#5 10.39 Unpacking libnftnl11:amd64 (1.2.6-2build1) ...
+#5 10.46 Selecting previously unselected package iptables.
+#5 10.46 Preparing to unpack .../08-iptables_1.8.10-3ubuntu2_amd64.deb ...
+#5 10.47 Unpacking iptables (1.8.10-3ubuntu2) ...
+#5 10.56 Selecting previously unselected package libedit2:amd64.
+#5 10.56 Preparing to unpack .../09-libedit2_3.1-20230828-1build1_amd64.deb ...
+#5 10.57 Unpacking libedit2:amd64 (3.1-20230828-1build1) ...
+#5 10.65 Selecting previously unselected package libjansson4:amd64.
+#5 10.65 Preparing to unpack .../10-libjansson4_2.14-2build2_amd64.deb ...
+#5 10.66 Unpacking libjansson4:amd64 (2.14-2build2) ...
+#5 10.74 Selecting previously unselected package libnftables1:amd64.
+#5 10.74 Preparing to unpack .../11-libnftables1_1.0.9-1ubuntu0.1_amd64.deb ...
+#5 10.75 Unpacking libnftables1:amd64 (1.0.9-1ubuntu0.1) ...
+#5 10.82 Selecting previously unselected package nftables.
+#5 10.82 Preparing to unpack .../12-nftables_1.0.9-1ubuntu0.1_amd64.deb ...
+#5 10.84 Unpacking nftables (1.0.9-1ubuntu0.1) ...
+#5 10.90 Selecting previously unselected package conntrack.
+#5 10.90 Preparing to unpack .../13-conntrack_1%3a1.4.8-1ubuntu1_amd64.deb ...
+#5 10.91 Unpacking conntrack (1:1.4.8-1ubuntu1) ...
+#5 10.98 Setting up libip4tc2:amd64 (1.8.10-3ubuntu2) ...
+#5 11.01 Setting up libip6tc2:amd64 (1.8.10-3ubuntu2) ...
+#5 11.04 Setting up libjansson4:amd64 (2.14-2build2) ...
+#5 11.07 Setting up libmnl0:amd64 (1.0.5-2build1) ...
+#5 11.10 Setting up libxtables12:amd64 (1.8.10-3ubuntu2) ...
+#5 11.13 Setting up libnfnetlink0:amd64 (1.0.2-2build1) ...
+#5 11.16 Setting up libbsd0:amd64 (0.12.1-1build1.1) ...
+#5 11.19 Setting up libedit2:amd64 (3.1-20230828-1build1) ...
+#5 11.22 Setting up libnftnl11:amd64 (1.2.6-2build1) ...
+#5 11.25 Setting up libnetfilter-conntrack3:amd64 (1.0.9-6build1) ...
+#5 11.28 Setting up libnftables1:amd64 (1.0.9-1ubuntu0.1) ...
+#5 11.31 Setting up nftables (1.0.9-1ubuntu0.1) ...
+#5 11.41 Setting up iptables (1.8.10-3ubuntu2) ...
+#5 11.43 update-alternatives: using /usr/sbin/iptables-legacy to provide /usr/sbin/iptables (iptables) in auto mode
+#5 11.44 update-alternatives: using /usr/sbin/ip6tables-legacy to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+#5 11.44 update-alternatives: using /usr/sbin/iptables-nft to provide /usr/sbin/iptables (iptables) in auto mode
+#5 11.45 update-alternatives: using /usr/sbin/ip6tables-nft to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+#5 11.46 update-alternatives: using /usr/sbin/arptables-nft to provide /usr/sbin/arptables (arptables) in auto mode
+#5 11.46 update-alternatives: using /usr/sbin/ebtables-nft to provide /usr/sbin/ebtables (ebtables) in auto mode
+#5 11.48 Setting up conntrack (1:1.4.8-1ubuntu1) ...
+#5 11.51 Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+#5 DONE 11.7s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 2.3s done
+#6 exporting manifest sha256:5205c4ab43eb7cf44b9fe804842b6b502493b27b94d0ca8a6639e4912e4a1161 0.0s done
+#6 exporting config sha256:1cf4408c16cc9752e8f587d202870833dad82f2b33f59e9142370d93eba046cd 0.0s done
+#6 exporting attestation manifest sha256:939ca4e381a55d6c83a34ab588e89f45049efe5a4ebf88a31ec23cb2407fc20f 0.0s done
+#6 exporting manifest list sha256:f43c6b810318e421fa2338af819b0a2341ca9a09999d4df5b7eb9858cdd13366
+#6 exporting manifest list sha256:f43c6b810318e421fa2338af819b0a2341ca9a09999d4df5b7eb9858cdd13366 0.0s done
+#6 naming to docker.io/library/segmentation-feasibility:v0 done
+#6 unpacking to docker.io/library/segmentation-feasibility:v0
+#6 unpacking to docker.io/library/segmentation-feasibility:v0 0.5s done
+#6 DONE 3.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wqowben7uwgs4v47ghsysrnqf

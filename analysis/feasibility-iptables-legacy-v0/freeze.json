@@ -1,0 +1,8 @@
+{
+  "image": "sha256:f43c6b810318e421fa2338af819b0a2341ca9a09999d4df5b7eb9858cdd13366",
+  "sha256": {
+    "src\\run_feasibility.py": "0ddc9fd7b951444797dc8d10a7c9917b365693ce67e9b99cf225bbeb4d9907b0",
+    "src\\rollback_probe.py": "96927e5e2c4e33438e63fac04536a0cbfb64be2ad9c05060d17f30c296db3d3e",
+    "protocol\\feasibility-v0.md": "a61a069a0fbde74f3fa19b737488b5a9421cd4e8149e5dfe23971d4cf7ffb3b7"
+  }
+}

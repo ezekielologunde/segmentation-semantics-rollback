@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "iptables-legacy",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "iptables v1.8.10 (legacy)\n",
+    "stderr": "",
+    "t_ns": 68218697212881
+  },
+  {
+    "command": [
+      "iptables-legacy",
+      "-N",
+      "ROLLBACK_STUDY"
+    ],
+    "exit_code": 3,
+    "stdout": "",
+    "stderr": "iptables v1.8.10 (legacy): can't initialize iptables table `filter': Permission denied (you must be root)\nPerhaps iptables or your kernel needs to be upgraded.\n",
+    "t_ns": 68218700829661
+  }
+]

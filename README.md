@@ -1,12 +1,12 @@
 # Segmentation semantics and rollback
 
-**Status: Proposed.** Research proposal only; no experiments, validated novelty, dataset, or final paper is asserted for this repository.
+**Status: Local feasibility pilot complete; novelty unresolved.** Two corrected isolated Linux traces distinguish restored rules from ongoing-session behavior. This reproduces known conntrack semantics, not a new vulnerability or CNI comparison. [Results](analysis/feasibility-report-v0.md), [literature gate](analysis/literature-gate-v0.md), and [current plan](protocol/research-plan-v1.md).
 
 [Research protocol and prior-art leads](protocol/research-plan.md). This plan comes from the October 4, 2026 independent research portfolio. Its literature assessment must be refreshed before implementation and submission.
 
 ## Research identity and publication route
 
-Author: **Ezekiel Ologunde**. Affiliation: **Independent Researcher**, with no institutional affiliation. Corresponding email is pending confirmation. Intended route: a suitable ACM journal, selected after assessing the completed contribution. No journal has accepted this work and no publisher metadata or DOI is assigned.
+Author: **Ezekiel Ologunde**. Affiliation: **Independent Researcher**, with no institutional affiliation. Author email: ologunde@bu.edu. No corresponding-author designation. Intended route: a suitable ACM journal, selected after assessing the completed contribution. No journal has accepted this work and no publisher metadata or DOI is assigned.
 
 ## Repository workflow
 

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/probe.py", line 40, in <module>
+    rules['initial']=policy('snapshot');initial=probe();assert not initial['success']
+                     ^^^^^^^^^^^^^^^^^^
+  File "/probe.py", line 35, in policy
+    cmd('-A','ROLLBACK_STUDY','-j','REJECT','--reject-with','tcp-reset')
+  File "/probe.py", line 5, in cmd
+    p=subprocess.run([backend,*args],capture_output=True,text=True,timeout=10);events.append(dict(command=p.args,exit_code=p.returncode,stdout=p.stdout,stderr=p.stderr,t_ns=time.monotonic_ns()));p.check_returncode();return p.stdout
+                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['iptables-nft', '-A', 'ROLLBACK_STUDY', '-j', 'REJECT', '--reject-with', 'tcp-reset']' returned non-zero exit status 4.
