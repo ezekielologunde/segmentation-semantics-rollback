@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-08",
+  "files": [
+    {
+      "repository": "mattfenwick/cyclonus",
+      "commit": "12f646fbd7d348dedb538e4bb7f076e4d927d7a6",
+      "path": "pkg/connectivity/probe/job.go",
+      "url": "https://raw.githubusercontent.com/mattfenwick/cyclonus/12f646fbd7d348dedb538e4bb7f076e4d927d7a6/pkg/connectivity/probe/job.go",
+      "sha256_utf8_response": "3f499b9e30247758eaba3bc3e1bf2556bbbeb0b5bf0d0cdd38dbc436eb272cb6",
+      "review": "Selected source sections only; not executed"
+    },
+    {
+      "repository": "mattfenwick/cyclonus",
+      "commit": "12f646fbd7d348dedb538e4bb7f076e4d927d7a6",
+      "path": "pkg/connectivity/probe/jobrunner.go",
+      "url": "https://raw.githubusercontent.com/mattfenwick/cyclonus/12f646fbd7d348dedb538e4bb7f076e4d927d7a6/pkg/connectivity/probe/jobrunner.go",
+      "sha256_utf8_response": "0891562db234cd1c1ad90212a68e6ab7744ad64aeb9c01764403ad8442d4a9f6",
+      "review": "Selected source sections only; not executed"
+    },
+    {
+      "repository": "cilium/cilium",
+      "commit": "eb6a6617d9ce9b33299c488c8672c359eaadfc37",
+      "path": "cilium-cli/connectivity/tests/upgrade.go",
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/cilium-cli/connectivity/tests/upgrade.go",
+      "sha256_utf8_response": "24f641d9007d0e26a84328f5b34b806f842135171f9eb59c9238ae7157838037",
+      "review": "Selected source sections only; not executed"
+    },
+    {
+      "repository": "cilium/cilium",
+      "commit": "eb6a6617d9ce9b33299c488c8672c359eaadfc37",
+      "path": "cilium-cli/connectivity/builder/no_interrupted_connections.go",
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/cilium-cli/connectivity/builder/no_interrupted_connections.go",
+      "sha256_utf8_response": "d23651d55543aa40e24e5cca5612fdfd1c7e459bea53dbbe1c1f6d8089ec63e2",
+      "review": "Selected source sections only; not executed"
+    },
+    {
+      "repository": "projectcalico/calico",
+      "commit": "290dc6ac64dd75013a58f299696e4c1639adb3db",
+      "path": "felix/fv/bpf_test.go",
+      "url": "https://raw.githubusercontent.com/projectcalico/calico/290dc6ac64dd75013a58f299696e4c1639adb3db/felix/fv/bpf_test.go",
+      "sha256_utf8_response": "121528e0a702a6840f2c0b6a569577e553843f455d14b4f30ae2df9b71d0e9db",
+      "review": "Selected source sections only; not executed"
+    },
+    {
+      "repository": "projectcalico/calico",
+      "commit": "290dc6ac64dd75013a58f299696e4c1639adb3db",
+      "path": "felix/fv/policy_test.go",
+      "url": "https://raw.githubusercontent.com/projectcalico/calico/290dc6ac64dd75013a58f299696e4c1639adb3db/felix/fv/policy_test.go",
+      "sha256_utf8_response": "e0771e9f63281262019de1f4d40d37e64d125df3f483f29a4b074572534840f8",
+      "review": "Selected source sections only; not executed"
+    }
+  ],
+  "failed_path": "cilium/cilium test/runtime/Policies.go at pinned commit returned 404"
+}
