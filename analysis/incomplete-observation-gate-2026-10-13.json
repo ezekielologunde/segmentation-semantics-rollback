@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-13",
+  "status": "Hold experiments; generic incomplete-evidence monitoring novelty rejected",
+  "source": "https://arxiv.org/html/2404.15723v1",
+  "review_depth": "Full HTML methods and evaluation sections inspected; tool not executed",
+  "findings": [
+    "POLIMON reasons over missing and delayed events using three-valued semantics.",
+    "Assumptions include known components, nonbogus events, and unique linearly ordered wall-clock timestamps.",
+    "Evaluation uses Timescales and synthetic financial-event traces with artificial delays and MONPOLY comparisons.",
+    "The paper reports SDN use; network application alone is not a distinguishing contribution.",
+    "The paper states source access requires a nonprofit license agreement; do not claim executable reproduction."
+  ],
+  "remaining_question": "Whether a specific enforcement acknowledgement has a documented semantic mismatch with an application-level revocation contract. This is a source-audit question, not a demonstrated gap.",
+  "vendor_source": "https://docs.cilium.io/en/stable/cmdref/cilium-dbg_policy_wait/",
+  "vendor_reading": "The command waits for endpoint policy revision updates. Documentation alone does not prove what happens to every established session.",
+  "next": "Pin the command implementation and endpoint update path, then map exact guarantees to the contract. Do not create a new monitor or launch HPC."
+}

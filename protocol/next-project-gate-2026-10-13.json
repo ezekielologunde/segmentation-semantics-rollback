@@ -1,0 +1,19 @@
+{
+  "project": "Segmentation semantics and rollback",
+  "working_question": "Which observable evidence supports a bounded claim that a network-policy rollback has taken effect for established sessions?",
+  "status": "Resumed literature gate; experiments on hold; novelty unestablished",
+  "existing_work": "Existing local pilots reproduce known connection-tracking behavior. Persistent-session testing and basic temporal monitoring are already covered in prior work.",
+  "new_primary_leads": [
+    {"url": "https://arxiv.org/abs/1909.11593", "title": "Runtime Verification over Out-of-order Streams", "review_depth": "search abstract only", "overlap": "Partial knowledge and three-valued semantics; missing evidence is not a new monitoring problem"},
+    {"url": "https://arxiv.org/abs/2404.15723", "title": "POLIMON: Checking Temporal Properties over Out-of-order Streams at Runtime", "review_depth": "search abstract only", "next": "Read full evaluation and inspect tool before defining a baseline"},
+    {"url": "https://docs.cilium.io/en/stable/api/", "review_depth": "search excerpt only", "next": "Pin implementation and determine exactly what agent-local realized policy revision guarantees"}
+  ],
+  "next_gate": [
+    "Read complete closest-work methods and evaluations for incomplete and delayed observations",
+    "Map API acceptance, endpoint policy realization and application delivery to precise guarantees in pinned source",
+    "Define an identical-input baseline and state what would falsify a proposed contribution",
+    "Advance only for an uncovered measurement or inference question; otherwise close this candidate without more confirmation experiments"
+  ],
+  "execution": "Local literature and source audit first. No HPC, live cluster, model run or new manuscript result authorized by the evidence gate itself.",
+  "publication_claim": "None"
+}

@@ -1,0 +1,18 @@
+{
+  "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/cilium-dbg/cmd/policy_wait.go",
+  "sha256": "d281c03b50c5016da61d474b32ab299abac030a97cbe58ac0bd947c08ee6ff8b",
+  "review": "Entire policy_wait.go inspected; source analysis only, no execution",
+  "observations": [
+    "Calls client.EndpointList on each polling iteration.",
+    "Counts endpoints ready when realized policy revision is at least requested revision and endpoint state is Ready.",
+    "Returns when ready equals current list length. An empty successful list satisfies this predicate arithmetically.",
+    "The command does not itself retain a required endpoint inventory across polls or probe application delivery."
+  ],
+  "limits": [
+    "Client and server endpoint-list scope not traced yet.",
+    "Endpoint regeneration semantics not traced yet.",
+    "Empty inventory is not demonstrated in a running system and is not asserted to be a vulnerability.",
+    "The requested revision is a lower bound, not proof of equality to a particular configuration hash."
+  ],
+  "next_question": "Can an explicit stable inventory and contract prevent an operator from overinterpreting this scoped status? Need closest-work audit before claiming novelty."
+}
