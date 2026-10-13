@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-13",
+  "status": "Source-level falsification test, not cluster evaluation",
+  "hypotheses": ["A shared successful connection timestamp cannot identify the realization time of each overlapping allow policy.", "An unqualified policy-name timestamp map can mix same-named policies in different namespaces."],
+  "method": "Extract and execute the unmodified result-aggregation loop from pinned Kube-burner source in a small Go fixture. Supply deterministic synthetic timestamps and compare against independently stated fixture facts.",
+  "controls": ["Disjoint flow-policy mapping", "Overlap with all creation times preceding connection success", "Overlap with one later creation time", "Two different policy realization histories with identical observable input", "Same policy name across namespaces"],
+  "rejection": "Reject the mechanism if source aggregation preserves unique namespace identity or independently observes each policy realization. Even a reproduced discrepancy does not establish field-wide novelty.",
+  "interpretation": "Effective connectivity and individual policy realization are different estimands. If the intended metric is effective connectivity, overlap alone is not a defect. No claim of unauthorized network access follows.",
+  "literature_basis": ["Kubernetes NetworkPolicy additive union semantics", "Kube-burner pinned source and published measurement definition", "Prior measurement review in analysis/measurement-contribution-review.json"],
+  "next_gate": "Native end-to-end reproduction and closest-work review required before a publication-level contribution claim."
+}

@@ -1,0 +1,6 @@
+{
+  "source": "https://raw.githubusercontent.com/kube-burner/kube-burner/28f74ab467b212cb77e53881c7d34973f5b99a8d/pkg/measurements/netpol_latency.go",
+  "source_sha256": "47af67c9e9cfd310f1151956b6e39a1849355f8b56ca5e1c528c86fc691bedb6",
+  "extracted_block_sha256": "651dd06e9e645ef248e4811c7032adbad86792e141989b07034e90e6093b8839",
+  "scope": "Actual aggregation loop; synthetic fixtures; surrounding types and logging stubbed; not full Kube-burner execution"
+}

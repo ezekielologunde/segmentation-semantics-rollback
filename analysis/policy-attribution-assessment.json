@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-13",
+  "status": "Concrete source-level measurement finding; journal novelty unresolved",
+  "reproduction": "python src/run_attribution_fixture.py",
+  "source": "https://github.com/kube-burner/kube-burner/blob/28f74ab467b212cb77e53881c7d34973f5b99a8d/pkg/measurements/netpol_latency.go",
+  "findings": [
+    {
+      "name": "Namespace identity loss",
+      "evidence": "Creation timestamps keyed by netpol.Name; aggregation also keys by unqualified policy name. Fixture writes ns-one/allow at 100ms then ns-two/allow at 900ms. Observation for first at 200ms reports -700ms instead of 100ms.",
+      "limit": "Timestamp-map setup is mirrored from callback; aggregation loop is extracted unmodified. The supplied default template makes names iteration-specific and avoids this collision. No claim that default benchmark results exhibit it."
+    },
+    {
+      "name": "Shared-flow attribution ambiguity",
+      "evidence": "One successful flow is reused for multiple policies. A flow at 300ms yields A=200ms and B=100ms with creation times 100/200ms. Changing B's unobserved realization time cannot change this output.",
+      "limit": "Valid as shared effective-connectivity measurement. It cannot independently establish each overlapping policy's realization. Additive policy semantics are already known; no novel theorem claimed."
+    },
+    {
+      "name": "Negative interval inclusion",
+      "evidence": "B created at 400ms with shared success at 300ms contributes -100ms. Source warns and retains it.",
+      "limit": "Negative values are explicitly acknowledged in existing source. Their existence is not a new discovery."
+    }
+  ],
+  "version_check": "The same name-only creation-map and shared-result loop strings were also present at 5131d57bb3315e29f4bcf896f09926a7dd71ccc0, the latest file-changing commit returned by the API during review. Only the older pinned loop was executed.",
+  "closest_work": [
+    {"url": "https://github.com/kube-burner/kube-burner/pull/679", "assessment": "PR explicitly documents deduplicating identical flow probes. Therefore deduplication is intentional, not an undiscovered implementation behavior."},
+    {"url": "https://kubernetes.io/docs/concepts/services-networking/network-policies/", "assessment": "Allow policies combine additively. A successful shared flow does not uniquely identify its enabling policy."},
+    {"url": "https://yuba.stanford.edu/~peyman/docs/atpg-conext12.pdf", "assessment": "ATPG already addresses rule coverage and fault localization. Abstract and introduction reviewed here. Full algorithm comparison required before proposing unique-witness testing as new."},
+    {"url": "https://arxiv.org/abs/2209.12870", "assessment": "Test Coverage for Network Configurations is a relevant further baseline; abstract-level screening only."}
+  ],
+  "search_scope": "Targeted public web searches plus GitHub issue search for netpol latency and PR 671/679 descriptions/comments. No matching namespace report found in inspected results. This is not an exhaustive novelty search.",
+  "potential_research_question": "How often do realistic benchmark policy sets permit per-policy latency identification, and how much do unsupported attribution and identity loss alter reported deadline outcomes?",
+  "publication_gate": ["Execute native callback/aggregation regression in full upstream package", "Reproduce valid non-default same-name workload end to end", "Quantify overlap in supplied workload templates", "Compare ATPG and configuration-coverage methods", "Show material consequences beyond a straightforward map-key bug"],
+  "engineering_next": "Separate namespaced object identity from flow identity; report shared reachability separately from uniquely evidenced policy realization. Keep a simple namespace-key correction as the strongest baseline.",
+  "external_reporting": "No upstream issue, message or submission sent."
+}

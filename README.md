@@ -1,5 +1,7 @@
 # Segmentation semantics and rollback
 
+[Policy attribution audit](analysis/policy-attribution-assessment.json): an extracted upstream Go aggregation loop reproduces a same-name namespace collision and shared-flow timing ambiguity on synthetic fixtures. Four checks pass. This is a source-level engineering result; default workload failure, live cluster impact and research novelty are not established. Reproduce with `python src/run_attribution_fixture.py` after pulling the pinned Go image named in that script.
+
 Latest evidence: [measurement contribution review](analysis/measurement-contribution-review.json). Upstream Kubernetes already measures policy enforcement through traffic and pod churn. A 12-trial local command calibration passed five checks and confirmed response-completion confounding, but this is known command behavior, not research novelty. The bounded next candidate is measurement validity under incomplete observations; full-method comparison remains required.
 
 Latest review: [vendor and monitoring baseline coverage](analysis/baseline-coverage-v2.md), [explicit rollback contract](protocol/rollback-contract-v2.md), and [pinned source manifest](analysis/vendor-source-review-v2.json). Persistent-session tests already exist, and the basic revocation predicate uses established temporal operators. Generic monitor novelty is not supported. Further experimental expansion remains on hold pending a distinct evidence-related gap.

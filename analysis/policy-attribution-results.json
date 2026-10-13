@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-13",
+  "image": "golang@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191",
+  "checks": {
+    "disjoint_control_200ms": true,
+    "shared_observation_two_policies": true,
+    "negative_interval_retained": true,
+    "namespace_collision": true
+  },
+  "cases": [
+    {
+      "case": "disjoint_control",
+      "reported_ms": {
+        "A": [
+          200
+        ]
+      }
+    },
+    {
+      "case": "overlap_positive",
+      "reported_ms": {
+        "A": [
+          200
+        ],
+        "B": [
+          100
+        ]
+      }
+    },
+    {
+      "case": "overlap_later_creation",
+      "reported_ms": {
+        "A": [
+          200
+        ],
+        "B": [
+          -100
+        ]
+      }
+    },
+    {
+      "case": "same_name_different_namespaces",
+      "expected_ns_one_ms": 100,
+      "reported_ms": {
+        "allow": [
+          -700
+        ]
+      }
+    }
+  ],
+  "scope": "Unmodified extracted Go aggregation loop. Creation-map assignments mirrored. Synthetic timestamps; no cluster or full application run.",
+  "novelty": "Unresolved; reproducible engineering mechanism, not established scholarly contribution."
+}
