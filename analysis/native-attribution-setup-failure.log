@@ -1,0 +1,4 @@
+FAIL	github.com/kube-burner/kube-burner/v2/pkg/measurements [setup failed]
+FAIL
+# github.com/kube-burner/kube-burner/v2/pkg/measurements
+/go/pkg/mod/k8s.io/client-go@v0.31.1/testing/fixture.go:28:2: github.com/go-task/slim-sprig/v3@v3.0.0: Get "https://proxy.golang.org/github.com/go-task/slim-sprig/v3/@v/v3.0.0.mod": dial tcp: lookup proxy.golang.org on 192.168.65.7:53: dial udp 192.168.65.7:53: connect: network is unreachable

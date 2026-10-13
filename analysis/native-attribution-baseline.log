@@ -1,0 +1,33 @@
+=== RUN   TestResearchNativeAttribution
+=== RUN   TestResearchNativeAttribution/unique_names_slow
+time="2026-10-13T22:58:05Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:05Z" level=info msg="research: MinReady 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+time="2026-10-13T22:58:05Z" level=info msg="research: Ready 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"unique_names_slow","fixed":false,"ground_truth_threshold_failed":true,"metric_count":2,"reported_ms":{"allow-one":[6000],"allow-two":[1000]},"threshold_failed":true}
+=== RUN   TestResearchNativeAttribution/same_names_slow
+time="2026-10-13T22:58:10Z" level=warning msg="🚨 Network policy allow has negitive latency -2000 for connection test from client-one to server-one"
+time="2026-10-13T22:58:10Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:10Z" level=info msg="research: Ready 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+time="2026-10-13T22:58:10Z" level=info msg="research: MinReady 99th: -2000 ms max: -2000 ms avg: -2000 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"same_names_slow","fixed":false,"ground_truth_threshold_failed":true,"metric_count":1,"reported_ms":{"allow":[-2000,1000]},"threshold_failed":false}
+=== RUN   TestResearchNativeAttribution/unique_names_fast
+time="2026-10-13T22:58:15Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:15Z" level=info msg="research: MinReady 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+time="2026-10-13T22:58:15Z" level=info msg="research: Ready 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"unique_names_fast","fixed":false,"ground_truth_threshold_failed":false,"metric_count":2,"reported_ms":{"allow-one":[1000],"allow-two":[1000]},"threshold_failed":false}
+=== RUN   TestResearchNativeAttribution/same_names_fast
+time="2026-10-13T22:58:20Z" level=warning msg="🚨 Network policy allow has negitive latency -7000 for connection test from client-one to server-one"
+time="2026-10-13T22:58:20Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:20Z" level=info msg="research: Ready 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+time="2026-10-13T22:58:20Z" level=info msg="research: MinReady 99th: -7000 ms max: -7000 ms avg: -7000 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"same_names_fast","fixed":false,"ground_truth_threshold_failed":false,"metric_count":1,"reported_ms":{"allow":[-7000,1000]},"threshold_failed":false}
+--- PASS: TestResearchNativeAttribution (20.01s)
+    --- PASS: TestResearchNativeAttribution/unique_names_slow (5.00s)
+    --- PASS: TestResearchNativeAttribution/same_names_slow (5.01s)
+    --- PASS: TestResearchNativeAttribution/unique_names_fast (5.00s)
+    --- PASS: TestResearchNativeAttribution/same_names_fast (5.00s)
+=== RUN   TestResearchNativeMapping
+    research_attribution_test.go:93: Native prepareConnections verified, namespace-aware=false
+--- PASS: TestResearchNativeMapping (0.00s)
+PASS
+ok  	github.com/kube-burner/kube-burner/v2/pkg/measurements	20.045s

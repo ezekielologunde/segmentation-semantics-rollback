@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-13",
+  "sources": [
+    {
+      "url": "https://yuba.stanford.edu/~peyman/docs/atpg-conext12.pdf",
+      "title": "Automatic Test Packet Generation",
+      "reviewed": "Sections 4.1 and 4.2 in addition to earlier abstract/introduction review",
+      "contribution": "Packet generation for rule coverage plus fault localization.",
+      "overlap": "Explicitly discusses indistinguishable rules and observation placement. A general claim that shared observations cannot distinguish rules is prior art.",
+      "difference_to_candidate": "Our concrete case concerns namespaced benchmark identity and attribution of transition latency. That distinction alone does not establish novelty."
+    },
+    {
+      "url": "https://arxiv.org/html/2209.12870v1",
+      "title": "Test Coverage for Network Configurations",
+      "reviewed": "Approach, strong/weak coverage, implementation scope, evaluation discussion and related work",
+      "contribution": "NetCov uses information-flow graphs and Boolean necessity to distinguish essential from redundant configuration coverage.",
+      "assumption": "Stable network state; reported implementation targets router configuration and BGP-related elements.",
+      "overlap": "A configuration element can contribute without being essential to an observed outcome. Therefore relabeling this as unique-policy evidence would not be a new general method.",
+      "difference_to_candidate": "Potential empirical contribution must establish concrete latency-decision failures during policy transitions and compare a standard identity/coverage correction."
+    }
+  ],
+  "decision": "Keep the naming defect as a reproducible engineering finding. Do not claim algorithmic novelty for strong/weak coverage or observation ambiguity."
+}

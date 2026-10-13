@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-13",
+  "status": "Native-package false-pass reproduction and candidate fix validated; not live cluster validation or established journal novelty",
+  "implementation": "Unmodified Kube-burner v2.5.1 measurement callback, HTTP result processing, normalization, quantiles and threshold evaluation executed in the native package. Test objects and proxy response timestamps are synthetic. Informer delivery, actual proxy/client pods and CNI are not exercised.",
+  "primary_result": {
+    "true_max_ms": 6000,
+    "threshold_ms": 5000,
+    "baseline_reported_max_ms": 1000,
+    "baseline_decision": "pass",
+    "fixed_reported_max_ms": 6000,
+    "fixed_decision": "fail",
+    "cause": "Two namespaces with same-named policies share a timestamp key and a result-group key. The later creation overwrites the earlier one and produces a negative observation. Aggregation merges the two identities."
+  },
+  "checks": {
+    "baseline_cases_passed": 4,
+    "fixed_cases_passed": 4,
+    "baseline_wrong_threshold_decisions": 1,
+    "fixed_wrong_threshold_decisions": 0,
+    "baseline_mapping_test_passed": true,
+    "fixed_mapping_test_passed": true
+  },
+  "scope_of_counts": "Four deterministic cases per implementation; not failure-rate estimates or statistical samples.",
+  "fix": "analysis/native-namespace-fix.patch uses namespace/name for callback timestamps and probe attribution. Native prepareConnections is additionally exercised using the Kubernetes fake client and a two-namespace policy template. This validates mapping construction separately; actual API/proxy/CNI deployment remains untested. Candidate patch is not upstream accepted.",
+  "workload_census": {
+    "method": "Actual pinned Go template rendered with Sprig, parsed as Kubernetes policies, then flow-to-policy memberships enumerated at probe port 8080. Unique-witness criterion is a restricted static probe criterion, not a new algorithm.",
+    "example": "9 policies, 34 distinct probe flows, no shared flows, all nine policies have a unique probe.",
+    "controlled_variant": "180 policies, 153 distinct probe flows, all shared, no policy with a unique probe; up to five policies share a flow.",
+    "limit": "Variant changes policy count in the same template. It is not evidence that the default example or production deployments have this overlap."
+  },
+  "novelty_boundary": "Namespace-key correction is standard engineering. ATPG discusses indistinguishable rules and NetCov formalizes strong/weak configuration coverage. No novel general attribution or coverage method established. A narrower empirical study of benchmark validity may be worth pursuing if end-to-end evidence and broader impact survive review.",
+  "execution_notes": [
+    "Initial dependency build completed successfully.",
+    "Harness preflight corrected callback input from typed to unstructured objects and used whole-second creation timestamps before successful execution.",
+    "The saved comparison runner initially refused an encoding-mismatched source read; explicit UTF-8 fixed the runner. No upstream source was overwritten by that refused run.",
+    "Final baseline and fixed logs are saved. Upstream source was restored after comparison.",
+    "Additional fake-client mapping test initially lacked cached dependencies; failed offline setup logs retained. Added two test-only indirect modules in native-test-dependencies.patch and rebuilt. Final baseline and fixed runs each passed four attribution cases and one mapping test."
+  ],
+  "remaining": [
+    "Independent end-to-end reproduction with actual API objects and proxy/client lifecycle",
+    "Version and issue-history audit before describing the defect as previously unreported",
+    "A broader empirical contribution beyond this conventional fix"
+  ],
+  "submission_status": "No issue, pull request, paper submission or message sent to upstream maintainers."
+}

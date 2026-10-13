@@ -1,0 +1,24 @@
+{
+  "scope": "Static rendered workload analysis; no cluster and no measured policy realization",
+  "template_pin": "28f74ab467b212cb77e53881c7d34973f5b99a8d",
+  "template_sha256_normalized_lf": "521c8e53d772a065903d8bf378184f2f06939ba87beb4507a824265842026e70",
+  "parameters": "Upstream example uses nine namespaces and one policy per namespace. Controlled variant changes replicas and netpols_per_namespace to 20, preserving other example values.",
+  "rows": [
+    {
+      "distinct_probe_flows": 34,
+      "max_policies_per_flow": 1,
+      "policies": 9,
+      "policies_with_unique_probe": 9,
+      "profile": "upstream_example",
+      "shared_probe_flows": 0
+    },
+    {
+      "distinct_probe_flows": 153,
+      "max_policies_per_flow": 5,
+      "policies": 180,
+      "policies_with_unique_probe": 0,
+      "profile": "controlled_overlap_variant",
+      "shared_probe_flows": 153
+    }
+  ]
+}

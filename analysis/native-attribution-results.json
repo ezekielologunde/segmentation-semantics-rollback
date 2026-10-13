@@ -1,0 +1,137 @@
+{
+  "pin": "28f74ab467b212cb77e53881c7d34973f5b99a8d",
+  "image": "golang@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191",
+  "scope": "Native measurement package with synthetic objects and loopback proxy, not a cluster deployment",
+  "results": {
+    "baseline": {
+      "returncode": 0,
+      "rows": [
+        {
+          "case": "unique_names_slow",
+          "fixed": false,
+          "ground_truth_threshold_failed": true,
+          "metric_count": 2,
+          "reported_ms": {
+            "allow-one": [
+              6000
+            ],
+            "allow-two": [
+              1000
+            ]
+          },
+          "threshold_failed": true
+        },
+        {
+          "case": "same_names_slow",
+          "fixed": false,
+          "ground_truth_threshold_failed": true,
+          "metric_count": 1,
+          "reported_ms": {
+            "allow": [
+              -2000,
+              1000
+            ]
+          },
+          "threshold_failed": false
+        },
+        {
+          "case": "unique_names_fast",
+          "fixed": false,
+          "ground_truth_threshold_failed": false,
+          "metric_count": 2,
+          "reported_ms": {
+            "allow-one": [
+              1000
+            ],
+            "allow-two": [
+              1000
+            ]
+          },
+          "threshold_failed": false
+        },
+        {
+          "case": "same_names_fast",
+          "fixed": false,
+          "ground_truth_threshold_failed": false,
+          "metric_count": 1,
+          "reported_ms": {
+            "allow": [
+              -7000,
+              1000
+            ]
+          },
+          "threshold_failed": false
+        }
+      ],
+      "source_sha256": "47af67c9e9cfd310f1151956b6e39a1849355f8b56ca5e1c528c86fc691bedb6",
+      "mapping_test_passed": true
+    },
+    "fixed": {
+      "returncode": 0,
+      "rows": [
+        {
+          "case": "unique_names_slow",
+          "fixed": true,
+          "ground_truth_threshold_failed": true,
+          "metric_count": 2,
+          "reported_ms": {
+            "ns-one/allow-one": [
+              6000
+            ],
+            "ns-two/allow-two": [
+              1000
+            ]
+          },
+          "threshold_failed": true
+        },
+        {
+          "case": "same_names_slow",
+          "fixed": true,
+          "ground_truth_threshold_failed": true,
+          "metric_count": 2,
+          "reported_ms": {
+            "ns-one/allow": [
+              6000
+            ],
+            "ns-two/allow": [
+              1000
+            ]
+          },
+          "threshold_failed": true
+        },
+        {
+          "case": "unique_names_fast",
+          "fixed": true,
+          "ground_truth_threshold_failed": false,
+          "metric_count": 2,
+          "reported_ms": {
+            "ns-one/allow-one": [
+              1000
+            ],
+            "ns-two/allow-two": [
+              1000
+            ]
+          },
+          "threshold_failed": false
+        },
+        {
+          "case": "same_names_fast",
+          "fixed": true,
+          "ground_truth_threshold_failed": false,
+          "metric_count": 2,
+          "reported_ms": {
+            "ns-one/allow": [
+              1000
+            ],
+            "ns-two/allow": [
+              1000
+            ]
+          },
+          "threshold_failed": false
+        }
+      ],
+      "source_sha256": "9154055cabddf9a3f6f4c9bc096c347f6fc87592388e8a26aa8533fbdeeb1aaa",
+      "mapping_test_passed": true
+    }
+  }
+}

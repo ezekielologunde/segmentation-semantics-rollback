@@ -1,0 +1,45 @@
+--- a/pkg/measurements/netpol_latency.go
++++ b/pkg/measurements/netpol_latency.go
+@@ -192,7 +192,7 @@
+ 		log.Errorf("failed to convert to NetworkPolicy: %v", err)
+ 		return
+ 	}
+-	npCreationTime[netpol.Name] = netpol.CreationTimestamp.UTC()
++	npCreationTime[netpol.Namespace+"/"+netpol.Name] = netpol.CreationTimestamp.UTC()
+ }
+ 
+ // Render the network policy from the object template using iteration details as input
+@@ -267,6 +267,7 @@
+ 				for _, networkPolicy := range n.getNetworkPolicies(i, r, obj, cleanTemplate) {
+ 					nsIndex := i / n.JobConfig.IterationsPerNamespace
+ 					namespace := fmt.Sprintf("%s-%d", n.JobConfig.Namespace, nsIndex)
++					policyKey := namespace+"/"+networkPolicy.Name
+ 					localPods := addPodsByLabel(n.ClientSet, namespace, &networkPolicy.Spec.PodSelector)
+ 					for _, ingress := range networkPolicy.Spec.Ingress {
+ 						var ingressPorts []int32
+@@ -296,13 +297,13 @@
+ 											// Network policies in the same namespace might use same remote address (i.e remote namespace pod)
+ 											ar := fmt.Sprintf("%s:%s", ra, ip)
+ 											if addrReuse[ar] == nil {
+-												addrReuse[ar] = []string{networkPolicy.Name}
++												addrReuse[ar] = []string{policyKey}
+ 												// Avoid a peer pod pinging multiple times to same local pod because of pod reuse by network policies
+ 												otherIPs = append(otherIPs, ip)
+ 											} else {
+ 												// check if network policy doesn't exist in the addrReuse
+-												if !slices.Contains(addrReuse[ar], networkPolicy.Name) {
+-													addrReuse[ar] = append(addrReuse[ar], networkPolicy.Name)
++												if !slices.Contains(addrReuse[ar], policyKey) {
++													addrReuse[ar] = append(addrReuse[ar], policyKey)
+ 
+ 												}
+ 											}
+@@ -314,7 +315,7 @@
+ 									conn := connection{
+ 										Addresses: otherIPs,
+ 										Ports:     ingressPorts,
+-										Netpol:    networkPolicy.Name,
++										Netpol:    policyKey,
+ 									}
+ 									if connections[ra] == nil {
+ 										connections[ra] = []connection{conn}

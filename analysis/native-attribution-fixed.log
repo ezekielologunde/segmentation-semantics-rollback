@@ -1,0 +1,31 @@
+=== RUN   TestResearchNativeAttribution
+=== RUN   TestResearchNativeAttribution/unique_names_slow
+time="2026-10-13T22:58:30Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:30Z" level=info msg="research: Ready 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+time="2026-10-13T22:58:30Z" level=info msg="research: MinReady 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"unique_names_slow","fixed":true,"ground_truth_threshold_failed":true,"metric_count":2,"reported_ms":{"ns-one/allow-one":[6000],"ns-two/allow-two":[1000]},"threshold_failed":true}
+=== RUN   TestResearchNativeAttribution/same_names_slow
+time="2026-10-13T22:58:35Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:35Z" level=info msg="research: MinReady 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+time="2026-10-13T22:58:35Z" level=info msg="research: Ready 99th: 3500 ms max: 6000 ms avg: 3500 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"same_names_slow","fixed":true,"ground_truth_threshold_failed":true,"metric_count":2,"reported_ms":{"ns-one/allow":[6000],"ns-two/allow":[1000]},"threshold_failed":true}
+=== RUN   TestResearchNativeAttribution/unique_names_fast
+time="2026-10-13T22:58:40Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:40Z" level=info msg="research: Ready 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+time="2026-10-13T22:58:40Z" level=info msg="research: MinReady 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"unique_names_fast","fixed":true,"ground_truth_threshold_failed":false,"metric_count":2,"reported_ms":{"ns-one/allow-one":[1000],"ns-two/allow-two":[1000]},"threshold_failed":false}
+=== RUN   TestResearchNativeAttribution/same_names_fast
+time="2026-10-13T22:58:45Z" level=info msg="Evaluating latency thresholds"
+time="2026-10-13T22:58:45Z" level=info msg="research: MinReady 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+time="2026-10-13T22:58:45Z" level=info msg="research: Ready 99th: 1000 ms max: 1000 ms avg: 1000 ms"
+    research_attribution_test.go:57: RESEARCH_RESULT {"case":"same_names_fast","fixed":true,"ground_truth_threshold_failed":false,"metric_count":2,"reported_ms":{"ns-one/allow":[1000],"ns-two/allow":[1000]},"threshold_failed":false}
+--- PASS: TestResearchNativeAttribution (20.03s)
+    --- PASS: TestResearchNativeAttribution/unique_names_slow (5.01s)
+    --- PASS: TestResearchNativeAttribution/same_names_slow (5.01s)
+    --- PASS: TestResearchNativeAttribution/unique_names_fast (5.01s)
+    --- PASS: TestResearchNativeAttribution/same_names_fast (5.01s)
+=== RUN   TestResearchNativeMapping
+    research_attribution_test.go:93: Native prepareConnections verified, namespace-aware=true
+--- PASS: TestResearchNativeMapping (0.00s)
+PASS
+ok  	github.com/kube-burner/kube-burner/v2/pkg/measurements	20.056s

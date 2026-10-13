@@ -1,0 +1,5 @@
+FAIL	github.com/kube-burner/kube-burner/v2/pkg/measurements [setup failed]
+FAIL
+go: downloading gopkg.in/evanphx/json-patch.v4 v4.12.0
+# github.com/kube-burner/kube-burner/v2/pkg/measurements
+/go/pkg/mod/k8s.io/client-go@v0.31.1/testing/fixture.go:28:2: gopkg.in/evanphx/json-patch.v4@v4.12.0: Get "https://proxy.golang.org/gopkg.in/evanphx/json-patch.v4/@v/v4.12.0.zip": dial tcp: lookup proxy.golang.org on 192.168.65.7:53: dial udp 192.168.65.7:53: connect: network is unreachable

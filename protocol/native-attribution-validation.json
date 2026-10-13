@@ -1,0 +1,11 @@
+{
+  "status": "Native-package deterministic regression protocol, not a cluster benchmark",
+  "pin": "28f74ab467b212cb77e53881c7d34973f5b99a8d",
+  "scope": "Actual handleCreateNetpol, processResults, normalization, quantiles and threshold implementation. HTTP test server substitutes proxy; synthetic unstructured Kubernetes objects substitute informer delivery.",
+  "cases": "Unique/same policy names crossed with first-policy delay 1000/6000ms. Second-policy delay always 1000ms. Creation times 1000/9000ms.",
+  "threshold": "Ready Max > 5000ms must fail. This is a deterministic regression boundary, not an estimated production SLO.",
+  "expected_problem": "Same-name timestamp overwrite makes first-policy delay -2000ms in the slow case and merges two metrics. Maximum 1000ms passes despite true maximum 6000ms.",
+  "fix_baseline": "Use namespace/name consistently for creation timestamps, connection attribution and metric grouping.",
+  "acceptance": "Unmodified native code reproduces false pass; patched code rejects slow cases and accepts fast controls; two distinct policies remain separate.",
+  "limits": "No actual CNI, Kubernetes API server, proxy deployment, or production failure. Straightforward identity fix is not journal novelty."
+}
