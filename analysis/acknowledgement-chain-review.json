@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-13",
+  "commit": "eb6a6617d9ce9b33299c488c8672c359eaadfc37",
+  "status": "Source audit, no live execution or novelty claim",
+  "files": [
+    {
+      "path": "pkg/client/endpoint.go",
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/pkg/client/endpoint.go",
+      "sha256": "c178f69e2a80dcb8dd740bdaa8a2672c6f59ebda2f827ad8d6a3fc04f0cdaab6"
+    },
+    {
+      "path": "pkg/endpoint/api/endpoint_api_handler.go",
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/pkg/endpoint/api/endpoint_api_handler.go",
+      "sha256": "5e2d7a6eefb19efe6414de5ab3e9f1e90c78cc5bc1feb7889d2877ccdc1fe3d0"
+    },
+    {
+      "path": "pkg/endpoint/policy.go",
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/pkg/endpoint/policy.go",
+      "sha256": "88833605d01c0ff6fbff14f9feb560bc750d5f079ae5db3317058438d48e8886"
+    }
+  ],
+  "findings": [
+    {
+      "scope": "client",
+      "finding": "EndpointList invokes GetEndpoint with default parameters and returns its payload; no cluster-wide aggregation is present in this function."
+    },
+    {
+      "scope": "handler",
+      "finding": "GET /endpoint delegates to endpointManager.GetEndpointList. Empty results produce NotFound only when labels were supplied; otherwise handler returns OK."
+    },
+    {
+      "scope": "realization",
+      "finding": "updateRealizedState is documented as following successful regeneration and sets realized policy to desired before recording the revision. A separate no-op update path can advance revision."
+    }
+  ],
+  "correction": "Do not characterize realized revision as merely API acceptance. The source explicitly connects it to datapath realization. Lack of an application probe alone does not demonstrate faulty enforcement.",
+  "remaining": [
+    "Trace endpoint-manager list membership and client-server scope before asserting locality.",
+    "Trace regeneration completion and existing-session datapath behavior before predicting revocation outcomes.",
+    "Determine whether existing deployment/conformance tools already enforce a fixed inventory across churn."
+  ],
+  "candidate_question": "Under a specified endpoint-churn contract, can current-inventory success be mistaken for required-inventory completion? This remains a hypothesis for source and literature review.",
+  "rejection_rule": "If existing tools already implement the same inventory and contract checks, reject generic monitor novelty. Do not inflate scope from a single command.",
+  "retrieval_failure": "daemon/cmd/endpoint.go returned 404 at this pin; Git tree located replacement handler path."
+}
