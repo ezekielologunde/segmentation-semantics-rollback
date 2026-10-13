@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-13",
+  "decision": "No defensible novelty claim yet. Retire generic enforcement-latency and churn-monitor claims; investigate measurement validity only as a bounded candidate.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/README.md",
+      "review": "Full README",
+      "finding": "Already measures traffic reachability after pod creation under churn and after a deny-to-allow policy transition. This defeats generic traffic-based enforcement measurement novelty."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/pkg/utils/utils.go",
+      "lines": [179, 210, 260, 267],
+      "finding": "RecordFirstSuccessfulRequest retries curl until success or a signal checked between attempts. It passes a connection timeout, with no transfer deadline. Neither this loop nor runCommand implements the documented one-second pacing. No upstream program execution was performed."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/policy-creation-enforcement-latency/test-client/client.go",
+      "lines": [107, 184],
+      "finding": "Targets come from a limited pod list. A successful probe triggers retrieval/caching of policy creation time and histogram observation. Retrieval failure returns without observation. Pending probes do not produce latency observations. This is a completion-time metric, not proof of universal isolation."
+    },
+    {
+      "url": "https://github.com/aws/aws-network-policy-agent/pull/657",
+      "review": "PR description and GitHub API merge metadata, not an independent reproduction",
+      "merged_at": "2026-08-21T16:36:13Z",
+      "merge_commit": "cca49a7baf575a7e3e5c45d150873c8b9cdf9c8a",
+      "finding": "Prior correction deduplicates trigger timestamps and suppresses invalid observations. Stale-timestamp metric inflation is established prior work, not our discovery."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.10125v7",
+      "title": "How segmented is my network?",
+      "review": "Sections III and IV inspected; remaining operational limitations require review",
+      "finding": "Estimates policy permissiveness using sampled connectivity outcomes and a fixed protocol suite. Its scope excludes enforcement correctness. Any proposed sampling or uncertainty contribution must distinguish this work and standard statistical methods."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0167739X26004401",
+      "title": "Zero-trust node security for KubeEdge: A policy-as-service architecture and reliability evaluation",
+      "review": "Publisher search excerpts only; full-page access returned 403",
+      "finding": "Potential close overlap on revocation completion and non-completing runs. Cannot claim a gap until methods and limitations are inspected."
+    }
+  ],
+  "calibration": {
+    "protocol": "protocol/measurement-validity-pilot.json",
+    "results": "analysis/probe-measurement-calibration.json",
+    "trials": 12,
+    "checks_passed": 5,
+    "finding": "All sockets were accepted. Ten responses completed. Two withheld bodies exceeded the one-second connection timeout and required the external two-second watchdog. Delayed bodies delayed the measured completion.",
+    "interpretation": "Expected curl semantics confirmed on local Windows. Not an upstream Kubernetes reproduction, observed CNI defect, or novel result."
+  },
+  "candidate": {
+    "question": "Under controlled churn and application delay, do existing enforcement measurement methods produce materially different deadline decisions from independent packet and application evidence, after accounting for incomplete targets?",
+    "potential_contribution": "A replicated empirical measurement-validity result and correction with documented applicability, if existing tools and literature do not already establish it.",
+    "baselines": ["Pinned upstream perf-tests", "Kube-burner policy latency measurement", "CNI realized-revision status", "Fixed-deadline completion counts with explicit pending targets", "Independent packet/application timestamps"],
+    "reject_if": ["Only known curl timeout behavior is demonstrated", "Completion coverage and standard censoring treatment eliminate all apparent contribution", "Prior work already covers the same confounds and correction", "Differences do not alter a prespecified operational conclusion", "The comparison changes intended metric definitions rather than showing a validity problem"],
+    "next_required": ["Inspect Kube-burner measurement implementation", "Complete full-method review of KubeEdge study and related measurement work", "Trace target membership and timing definitions for all selected baselines", "Set effect thresholds and fault controls before any cluster experiment"],
+    "hpc": "Not warranted. No cluster or large experiment authorized by this gate."
+  },
+  "additional_review": [
+    {
+      "url": "https://raw.githubusercontent.com/kube-burner/kube-burner/28f74ab467b212cb77e53881c7d34973f5b99a8d/pkg/measurements/netpol_latency.go",
+      "review": "Creation callback and result aggregation inspected, client/proxy internals still pending",
+      "finding": "Records creation timestamps and aggregates returned connection times by policy. Reuses a connection observation for matching policies. Negative latency is warned about and appended. These are source observations, not demonstrated deployment errors. End-to-end completeness cannot be inferred without inspecting the client/proxy."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/pkg/endpointmanager/manager.go",
+      "review": "GetEndpoints and GetEndpointList inspected",
+      "finding": "Copies current manager endpoint membership under a read lock, then reads models through workers. This supports current-inventory semantics; it does not establish a defect or a simultaneous state snapshot."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.10125v7",
+      "review": "Section X limitations also inspected",
+      "finding": "Explicitly acknowledges static measurement, symmetric edges and sampling limitations. Merely adding dynamics or asymmetric edges is not sufficient novelty."
+    }
+  ]
+}

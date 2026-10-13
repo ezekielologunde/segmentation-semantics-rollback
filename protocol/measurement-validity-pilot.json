@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "status": "Local measurement calibration only; novelty unresolved",
+  "question": "Does the inspected upstream probe distinguish network reachability from HTTP response completion?",
+  "motivation": "Kubernetes perf-tests measures policy creation using a curl process completing successfully. Its helper uses a connection timeout without an overall transfer deadline. Review the measurement boundary before attributing differences to enforcement.",
+  "source_commit": "33bdbffb24dd896a17220e7af00eb4c2682d4c6d",
+  "design": "Run the same curl flags against a loopback HTTP server with immediate, delayed and withheld responses. Record server accept time, response timing, process duration and termination reason. No firewall changes, CNI, cluster, or external target.",
+  "cases": {"immediate": 5, "delayed_body_0.25s": 5, "withheld_body": 2},
+  "external_watchdog_seconds": 2,
+  "hypothesis": "Application delay changes completion time although the socket is already accepted; withholding the body outlasts the one-second connection timeout.",
+  "rejection": "Reject this mechanism if delayed/withheld response does not affect the command as predicted. Even a positive result is standard curl behavior, not algorithmic or journal novelty.",
+  "comparison": "Server accept timestamps are an independent local reference. This reproduces command semantics, not the upstream Go program or its Kubernetes deployment.",
+  "limitations": ["Windows curl differs from the Linux upstream environment.", "Small deterministic calibration has no population inference.", "Application-completion latency can be a valid intended metric.", "Any future empirical contribution must establish consequential errors in actual decisions and compare existing measurement tools."]
+}

@@ -1,5 +1,7 @@
 # Segmentation semantics and rollback
 
+Latest evidence: [measurement contribution review](analysis/measurement-contribution-review.json). Upstream Kubernetes already measures policy enforcement through traffic and pod churn. A 12-trial local command calibration passed five checks and confirmed response-completion confounding, but this is known command behavior, not research novelty. The bounded next candidate is measurement validity under incomplete observations; full-method comparison remains required.
+
 Latest review: [vendor and monitoring baseline coverage](analysis/baseline-coverage-v2.md), [explicit rollback contract](protocol/rollback-contract-v2.md), and [pinned source manifest](analysis/vendor-source-review-v2.json). Persistent-session tests already exist, and the basic revocation predicate uses established temporal operators. Generic monitor novelty is not supported. Further experimental expansion remains on hold pending a distinct evidence-related gap.
 
 **Status: Literature-first review in progress; experimental expansion on hold; novelty unresolved.** The [updated contribution gate](analysis/literature-gate-v1.md) compares primary papers and pinned conformance source. Broad claims about temporal verification and LLM-assisted configuration are already covered. Two corrected isolated Linux traces reproduce known conntrack semantics, not a new vulnerability or CNI comparison. [Pilot results](analysis/feasibility-report-v0.md), [historical literature gate](analysis/literature-gate-v0.md), and [provisional plan](protocol/research-plan-v1.md).

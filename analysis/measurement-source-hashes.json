@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-13",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/README.md",
+      "bytes": 17405,
+      "sha256": "b3514d0bed5b821b2c572b1152d5045a571b5aff22c46bf43ddfdd88df790a61"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/pkg/utils/utils.go",
+      "bytes": 8726,
+      "sha256": "b6771297aae1232febdf8bdf0c8c2d104c6306c765cac97fd5a7d79682657f35"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/perf-tests/33bdbffb24dd896a17220e7af00eb4c2682d4c6d/network/tools/network-policy-enforcement-latency/policy-creation-enforcement-latency/test-client/client.go",
+      "bytes": 6380,
+      "sha256": "3eb7e8d38ad5fbca973263485c30e739292b5b496c7d6beccc8a3e1c0ebf56a6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kube-burner/kube-burner/28f74ab467b212cb77e53881c7d34973f5b99a8d/pkg/measurements/netpol_latency.go",
+      "bytes": 21066,
+      "sha256": "47af67c9e9cfd310f1151956b6e39a1849355f8b56ca5e1c528c86fc691bedb6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/cilium/cilium/eb6a6617d9ce9b33299c488c8672c359eaadfc37/pkg/endpointmanager/manager.go",
+      "bytes": 29878,
+      "sha256": "6fb05e442f0108a364655dbb10d72aea048c886c0ecc3c337129633a848bddf7"
+    }
+  ]
+}
