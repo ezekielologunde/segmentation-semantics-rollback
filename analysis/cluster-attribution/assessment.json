@@ -1,0 +1,157 @@
+{
+  "scope": "One deployed run per condition, correctness endpoints only, not a failure-rate estimate",
+  "checks": {
+    "baseline_two_objects": true,
+    "baseline_one_metric": true,
+    "baseline_negative_minimum": true,
+    "unique_two_objects_and_metrics": true,
+    "unique_matching_names": true,
+    "fixed_two_objects_and_metrics": true,
+    "fixed_matching_full_identity": true,
+    "fixed_nonnegative": true
+  },
+  "results": {
+    "baseline": {
+      "policy_identities": [
+        "network-policy-perf-0/allow",
+        "network-policy-perf-1/allow"
+      ],
+      "metric_names": [
+        "allow"
+      ],
+      "policy_count": 2,
+      "metric_count": 1,
+      "metrics": [
+        {
+          "timestamp": "2026-10-13T23:17:35Z",
+          "minReady": -203,
+          "ready": 2130,
+          "metricName": "netpolLatencyMeasurement",
+          "uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f",
+          "namespace": "",
+          "netpol": "allow",
+          "metadata": null,
+          "jobName": "network-policy-perf"
+        }
+      ]
+    },
+    "unique": {
+      "policy_identities": [
+        "network-policy-perf-0/allow-0",
+        "network-policy-perf-1/allow-1"
+      ],
+      "metric_names": [
+        "allow-0",
+        "allow-1"
+      ],
+      "policy_count": 2,
+      "metric_count": 2,
+      "metrics": [
+        {
+          "timestamp": "2026-10-13T23:20:09Z",
+          "minReady": 2068,
+          "ready": 2068,
+          "metricName": "netpolLatencyMeasurement",
+          "uuid": "10760adc-71c4-4749-bf61-83f7f0bd8622",
+          "namespace": "",
+          "netpol": "allow-1",
+          "metadata": null,
+          "jobName": "network-policy-perf"
+        },
+        {
+          "timestamp": "2026-10-13T23:20:07Z",
+          "minReady": 1741,
+          "ready": 1741,
+          "metricName": "netpolLatencyMeasurement",
+          "uuid": "10760adc-71c4-4749-bf61-83f7f0bd8622",
+          "namespace": "",
+          "netpol": "allow-0",
+          "metadata": null,
+          "jobName": "network-policy-perf"
+        }
+      ]
+    },
+    "fixed": {
+      "policy_identities": [
+        "network-policy-perf-0/allow",
+        "network-policy-perf-1/allow"
+      ],
+      "metric_names": [
+        "network-policy-perf-0/allow",
+        "network-policy-perf-1/allow"
+      ],
+      "policy_count": 2,
+      "metric_count": 2,
+      "metrics": [
+        {
+          "timestamp": "2026-10-13T23:21:53Z",
+          "minReady": 1838,
+          "ready": 1838,
+          "metricName": "netpolLatencyMeasurement",
+          "uuid": "b2da1e8b-788d-44df-a888-50eb96a0cd60",
+          "namespace": "",
+          "netpol": "network-policy-perf-0/allow",
+          "metadata": null,
+          "jobName": "network-policy-perf"
+        },
+        {
+          "timestamp": "2026-10-13T23:21:55Z",
+          "minReady": 2015,
+          "ready": 2015,
+          "metricName": "netpolLatencyMeasurement",
+          "uuid": "b2da1e8b-788d-44df-a888-50eb96a0cd60",
+          "namespace": "",
+          "netpol": "network-policy-perf-1/allow",
+          "metadata": null,
+          "jobName": "network-policy-perf"
+        }
+      ]
+    }
+  },
+  "not_established": [
+    "Live false-pass threshold consequence",
+    "Cross-CNI prevalence",
+    "Novel research contribution"
+  ],
+  "sha256": {
+    "analysis\\cluster-attribution\\baseline\\config.yml": "b1a0d3ed129a6508eace3e0f8e3b7d2fa71973a157553176e2f870cf528ac70e",
+    "analysis\\cluster-attribution\\baseline\\kube-burner-21cfcb2e-59bd-497a-b067-0874c91ff44f.log": "249f7f936e7369102caa8d2b9257c0b999b1d504f53f896bd6c84acb589c6678",
+    "analysis\\cluster-attribution\\baseline\\policies.json": "569b4741b9ab9157d64403097a192fa86e62abe0051d4a6bd3b053de867b5fee",
+    "analysis\\cluster-attribution\\baseline\\kube-burner\\jobSummary.json": "47d48530602aef104b411c89a3b6f974413c9e7bde4640776aa5bf4499919045",
+    "analysis\\cluster-attribution\\baseline\\kube-burner\\netpolLatencyMeasurement-network-policy-perf.json": "e7c4843ab8cb4eb5de9d5cca2612ac7fd929a7e101ef590d46864e72f4057dbd",
+    "analysis\\cluster-attribution\\baseline\\kube-burner\\netpolLatencyQuantilesMeasurement-network-policy-perf.json": "d1e600dc0fb8b328daf87bae81b4d556bc7f1b896b19577de5aebab48335c91e",
+    "analysis\\cluster-attribution\\baseline\\templates\\ingress-np.yml": "cc5447ebdc990a8683c39df293db548e0c48b4365098be74fd19d9fe47da6bbe",
+    "analysis\\cluster-attribution\\baseline\\templates\\np-allow-from-proxy.yml": "28db3635769c323efbf00edfbc758cdf0d77b43d8a8c27f69bd85e589f5869a3",
+    "analysis\\cluster-attribution\\baseline\\templates\\np-deny-all.yml": "1a7ff5a4eaba48d2396414820de379d04914f203a74b3b6900962ab04339f253",
+    "analysis\\cluster-attribution\\baseline\\templates\\pod.yml": "946cfc05762ed6baa04af45d94ef4d998dc8664e6c3e79da16cd14969cb21750",
+    "analysis\\cluster-attribution\\unique\\config.yml": "b1a0d3ed129a6508eace3e0f8e3b7d2fa71973a157553176e2f870cf528ac70e",
+    "analysis\\cluster-attribution\\unique\\console.log": "16571551ed7642bd9028f4a898c9977d15c8da4cba7132c00ac1c45fdc13a905",
+    "analysis\\cluster-attribution\\unique\\exit.json": "bfdedf06596faa2042b0fedd9653ec1023d2e96ed56dc40b607985bc8438c1d5",
+    "analysis\\cluster-attribution\\unique\\kube-burner-10760adc-71c4-4749-bf61-83f7f0bd8622.log": "fd8ea0ff61432827ccbf610387e172f97431f53cd2ad50d937f704394bd9aeaa",
+    "analysis\\cluster-attribution\\unique\\policies.json": "390adb4dd9685b098df1004230934cfa05e0f3921bd1652ce077050e5d969414",
+    "analysis\\cluster-attribution\\unique\\protocol.json": "5dda8325b715b35e4951ea9a69bfd8252ab1ae0e9255a1db512d1a8b53c11ee9",
+    "analysis\\cluster-attribution\\unique\\UPSTREAM-LICENSE": "59dd59cfbd4a7f5af07ad841a11a1865b609e4c1edc68b415a241f3dc0de1244",
+    "analysis\\cluster-attribution\\unique\\kube-burner\\jobSummary.json": "818bde419cd65239f28ec510e87215a7369685763296ae867fe00b57ac8e6598",
+    "analysis\\cluster-attribution\\unique\\kube-burner\\netpolLatencyMeasurement-network-policy-perf.json": "7655acb865f40cc64faf06cb7dd5e2806145959317ca4084391a764d5ad000c3",
+    "analysis\\cluster-attribution\\unique\\kube-burner\\netpolLatencyQuantilesMeasurement-network-policy-perf.json": "f81241244932d1b84409a08ee84f41f98913a28069b1bd24898dc71bdf78d1d3",
+    "analysis\\cluster-attribution\\unique\\templates\\ingress-np.yml": "a244630d787089aecc53a7cf68d82cab6c4b4f27a60c35dadebe8c5ab2857ff9",
+    "analysis\\cluster-attribution\\unique\\templates\\np-allow-from-proxy.yml": "28db3635769c323efbf00edfbc758cdf0d77b43d8a8c27f69bd85e589f5869a3",
+    "analysis\\cluster-attribution\\unique\\templates\\np-deny-all.yml": "1a7ff5a4eaba48d2396414820de379d04914f203a74b3b6900962ab04339f253",
+    "analysis\\cluster-attribution\\unique\\templates\\pod.yml": "f91bd173d8d7fd1690bc0e5cbcde3f27bf807d65a8216c2609289b2ada41844c",
+    "analysis\\cluster-attribution\\fixed\\config.yml": "b1a0d3ed129a6508eace3e0f8e3b7d2fa71973a157553176e2f870cf528ac70e",
+    "analysis\\cluster-attribution\\fixed\\console.log": "6cc6a8784e0fec6328d20999a41ec4a3203f74e528b960c2e6f8402cc3045dd7",
+    "analysis\\cluster-attribution\\fixed\\exit.json": "bfdedf06596faa2042b0fedd9653ec1023d2e96ed56dc40b607985bc8438c1d5",
+    "analysis\\cluster-attribution\\fixed\\kube-burner-b2da1e8b-788d-44df-a888-50eb96a0cd60.log": "d458251ae062da601697cd6d5da9b644d2b1070149522d55a9817f38c22be3ca",
+    "analysis\\cluster-attribution\\fixed\\policies.json": "364840c0f1c33cce26c02c314969b780497ea4f967403f7e9a3f20d200e0163f",
+    "analysis\\cluster-attribution\\fixed\\protocol.json": "5dda8325b715b35e4951ea9a69bfd8252ab1ae0e9255a1db512d1a8b53c11ee9",
+    "analysis\\cluster-attribution\\fixed\\REPRODUCE.txt": "acbaf70c5c3eeffcc9b2f0236fb5bc50d4050895697003eb31f7a654e519e2e6",
+    "analysis\\cluster-attribution\\fixed\\UPSTREAM-LICENSE": "59dd59cfbd4a7f5af07ad841a11a1865b609e4c1edc68b415a241f3dc0de1244",
+    "analysis\\cluster-attribution\\fixed\\kube-burner\\jobSummary.json": "e46ad3037ed2fe30626c0dc6cb0f8cae81fa785871ff8fb8a01105d5b5bfbb13",
+    "analysis\\cluster-attribution\\fixed\\kube-burner\\netpolLatencyMeasurement-network-policy-perf.json": "a5c90d818f81174cfa359fb5172dbdff621aef1b2d72847eecdb82d064a784e6",
+    "analysis\\cluster-attribution\\fixed\\kube-burner\\netpolLatencyQuantilesMeasurement-network-policy-perf.json": "3771a7b3a0f2c600feebc064bfc70441a55494659c80a38ee06b7c20a97dea9f",
+    "analysis\\cluster-attribution\\fixed\\templates\\ingress-np.yml": "cc5447ebdc990a8683c39df293db548e0c48b4365098be74fd19d9fe47da6bbe",
+    "analysis\\cluster-attribution\\fixed\\templates\\np-allow-from-proxy.yml": "28db3635769c323efbf00edfbc758cdf0d77b43d8a8c27f69bd85e589f5869a3",
+    "analysis\\cluster-attribution\\fixed\\templates\\np-deny-all.yml": "1a7ff5a4eaba48d2396414820de379d04914f203a74b3b6900962ab04339f253",
+    "analysis\\cluster-attribution\\fixed\\templates\\pod.yml": "f91bd173d8d7fd1690bc0e5cbcde3f27bf807d65a8216c2609289b2ada41844c"
+  }
+}

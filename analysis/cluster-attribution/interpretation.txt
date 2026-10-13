@@ -1,0 +1,35 @@
+DEPLOYED EVIDENCE, 2026-10-13
+
+Confirmed on pinned Kube-burner v2.5.1:
+- Two distinct API policy objects, each admitting a distinct directed flow,
+  collapse to one policy metric when names match across namespaces.
+- The emitted minimum was -203 ms. The benchmark exited successfully.
+- The unique-name control returned two policy metrics.
+- The candidate namespace/name key correction returned two metrics matching
+  the API identities, both nonnegative. Eight verification assertions passed.
+- A separate three-state reachability gate verified policy enforcement.
+
+This extends the synthetic native test to the actual deployed path. It does
+not establish the synthetic 5-second threshold false pass on live traffic.
+All live cases retained the example P99 10-second threshold. Cold/warm image
+pull differences and single runs prohibit performance or prevalence claims.
+Kubernetes timestamps are second-resolution here; small timing differences
+are not a calibrated enforcement-latency estimate.
+
+The fix leaves the separate Namespace output field blank and places the full
+identity in netpol. It is a research candidate, not a reviewed upstream API
+design. No upstream issue or pull request has been sent.
+
+The current main source also contains the name-only timestamp assignment,
+but only pinned v2.5.1 was executed. Do not claim every release is affected.
+
+Novelty remains unresolved. Namespacing keys is conventional engineering.
+ATPG indistinguishability and NetCov contribution-aware coverage already
+constrain broader attribution claims. The appropriate next gate is a
+closest-work and independent-tool comparison, not another large parameter
+sweep or an ACM manuscript claiming a new algorithm.
+
+Provenance: enforcement-install.yaml comes from kubernetes-sigs/
+kube-network-policies commit 5aeb2a7083e15613933fa2e5d207e285adb0b544,
+Apache-2.0. See protocol/cluster-attribution/UPSTREAM-LICENSE for license text.
+Other upstream template provenance is recorded in protocol.json.

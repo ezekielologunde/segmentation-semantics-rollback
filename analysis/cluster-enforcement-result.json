@@ -1,0 +1,7 @@
+{
+  "allowed_before": true,
+  "blocked_after_deny": true,
+  "allowed_after_delete": true,
+  "passed": true,
+  "scope": "Single-node local reachability gate only. Not a latency or attribution experiment."
+}

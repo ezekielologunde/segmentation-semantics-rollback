@@ -1,0 +1,14 @@
+{
+  "stage": "Bounded deployed reproduction, not performance estimation",
+  "upstream_commit": "28f74ab467b212cb77e53881c7d34973f5b99a8d",
+  "cluster": "segmentation-attribution, one local Kind node, Kubernetes v1.36.1",
+  "enforcement_manifest_commit": "5aeb2a7083e15613933fa2e5d207e285adb0b544",
+  "primary_endpoint": "Number of per-policy metrics for two policy objects, plus negative reported latency",
+  "design": "Two namespaces, one measured ingress policy per namespace, distinct directed flows. Run same-name baseline, unique-name control, then namespace-key correction if baseline runs successfully.",
+  "threshold": "Retain example P99 10 seconds. No induced slow-policy failure and no claim of live false-pass reproduction from metric collapse alone.",
+  "timing": "QPS 1, burst 1, 15-second job pause; no tuning against outcomes",
+  "image_handling": "First run resolves upstream latest tags; capture actual running image IDs and pin follow-up runs to these digests.",
+  "stop": "3-minute per-run timeout. Preserve failures. Do not launch broad sweeps or HPC jobs.",
+  "novelty": "Conventional identity bug. A deployed reproduction strengthens evidence but does not establish a new research contribution.",
+  "provenance": "pod.yml, np-deny-all.yml and np-allow-from-proxy.yml copied from pinned upstream examples under Apache-2.0. Config adapted from that example. ingress-np.yml is a controlled research template."
+}

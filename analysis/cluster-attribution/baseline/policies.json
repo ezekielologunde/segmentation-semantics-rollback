@@ -1,0 +1,259 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:17:33Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "0",
+                    "kube-burner.io/job": "network-policy-perf",
+                    "kube-burner.io/job-iteration": "0",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "allow",
+                "namespace": "network-policy-perf-0",
+                "resourceVersion": "1007",
+                "uid": "26a9a2d5-9c3b-4b47-8672-c713e18e4590"
+            },
+            "spec": {
+                "ingress": [
+                    {
+                        "from": [
+                            {
+                                "namespaceSelector": {
+                                    "matchLabels": {
+                                        "kubernetes.io/metadata.name": "network-policy-perf-1"
+                                    }
+                                },
+                                "podSelector": {
+                                    "matchLabels": {
+                                        "num": "2"
+                                    }
+                                }
+                            }
+                        ],
+                        "ports": [
+                            {
+                                "port": 8080,
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "podSelector": {
+                    "matchLabels": {
+                        "num": "1"
+                    }
+                },
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:16:27Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "2",
+                    "kube-burner.io/job": "network-policy-perf-pods",
+                    "kube-burner.io/job-iteration": "0",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "allow-from-proxy",
+                "namespace": "network-policy-perf-0",
+                "resourceVersion": "848",
+                "uid": "c77f0fc0-c3a2-4631-81b3-e77a58d3c664"
+            },
+            "spec": {
+                "ingress": [
+                    {
+                        "from": [
+                            {
+                                "namespaceSelector": {
+                                    "matchLabels": {
+                                        "kubernetes.io/metadata.name": "network-policy-proxy"
+                                    }
+                                }
+                            }
+                        ],
+                        "ports": [
+                            {
+                                "port": 9001,
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "podSelector": {},
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:16:26Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "1",
+                    "kube-burner.io/job": "network-policy-perf-pods",
+                    "kube-burner.io/job-iteration": "0",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "deny-all",
+                "namespace": "network-policy-perf-0",
+                "resourceVersion": "844",
+                "uid": "361dae8a-2214-4854-b806-ea5eac900127"
+            },
+            "spec": {
+                "podSelector": {},
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:17:35Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "0",
+                    "kube-burner.io/job": "network-policy-perf",
+                    "kube-burner.io/job-iteration": "1",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "allow",
+                "namespace": "network-policy-perf-1",
+                "resourceVersion": "1010",
+                "uid": "7bb935c6-b7c6-4b0d-9a0d-d4166a7dd828"
+            },
+            "spec": {
+                "ingress": [
+                    {
+                        "from": [
+                            {
+                                "namespaceSelector": {
+                                    "matchLabels": {
+                                        "kubernetes.io/metadata.name": "network-policy-perf-0"
+                                    }
+                                },
+                                "podSelector": {
+                                    "matchLabels": {
+                                        "num": "2"
+                                    }
+                                }
+                            }
+                        ],
+                        "ports": [
+                            {
+                                "port": 8080,
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "podSelector": {
+                    "matchLabels": {
+                        "num": "1"
+                    }
+                },
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:16:31Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "2",
+                    "kube-burner.io/job": "network-policy-perf-pods",
+                    "kube-burner.io/job-iteration": "1",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "allow-from-proxy",
+                "namespace": "network-policy-perf-1",
+                "resourceVersion": "869",
+                "uid": "197280d7-787e-46bb-9abb-8bf89cf259e2"
+            },
+            "spec": {
+                "ingress": [
+                    {
+                        "from": [
+                            {
+                                "namespaceSelector": {
+                                    "matchLabels": {
+                                        "kubernetes.io/metadata.name": "network-policy-proxy"
+                                    }
+                                }
+                            }
+                        ],
+                        "ports": [
+                            {
+                                "port": 9001,
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "podSelector": {},
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        },
+        {
+            "apiVersion": "networking.k8s.io/v1",
+            "kind": "NetworkPolicy",
+            "metadata": {
+                "creationTimestamp": "2026-10-13T23:16:30Z",
+                "generation": 1,
+                "labels": {
+                    "kube-burner.io/index": "1",
+                    "kube-burner.io/job": "network-policy-perf-pods",
+                    "kube-burner.io/job-iteration": "1",
+                    "kube-burner.io/replica": "1",
+                    "kube-burner.io/runid": "a2baeaaa-292f-434d-a3bb-6dae816420c2",
+                    "kube-burner.io/uuid": "21cfcb2e-59bd-497a-b067-0874c91ff44f"
+                },
+                "name": "deny-all",
+                "namespace": "network-policy-perf-1",
+                "resourceVersion": "866",
+                "uid": "8707400d-2eb4-4333-8c76-05644d35e51f"
+            },
+            "spec": {
+                "podSelector": {},
+                "policyTypes": [
+                    "Ingress"
+                ]
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

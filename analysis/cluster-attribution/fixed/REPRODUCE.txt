@@ -1,0 +1,50 @@
+DEPLOYED ATTRIBUTION CHECK
+
+This is a bounded correctness reproduction, not a latency performance comparison
+or evidence of scholarly novelty. The protocol note was written during initial
+deployment, before its result, and was not externally preregistered.
+
+Environment observed 2026-10-13:
+Kind v0.33.0 Windows amd64, SHA256
+4b22adaa135368c5a465d56bbd8e520cbea87272a06ca00b6078e7b81515c9fc
+Download and checksum: https://github.com/kubernetes-sigs/kind/releases/tag/v0.33.0
+Node image kindest/node:v1.36.1 at digest
+sha256:3489c7674813ba5d8b1a9977baea8a6e553784dab7b84759d1014dbd78f7ebd5
+Policy implementation manifest:
+https://raw.githubusercontent.com/kubernetes-sigs/kube-network-policies/5aeb2a7083e15613933fa2e5d207e285adb0b544/install.yaml
+Its daemonset runs inside the isolated Kind node, not the Windows host.
+Actual workload and enforcement image identities are in the analysis directory.
+
+1. Create Kind cluster segmentation-attribution with the node image above and
+   --kubeconfig .local-review/research-kubeconfig. Do not use the default context.
+2. Apply the pinned policy manifest with this explicit kubeconfig and wait for
+   daemonset/kube-network-policies in kube-system to finish rolling out.
+3. Run python src/cluster_enforcement_gate.py. Require all three checks to pass.
+4. Use pinned upstream checkout and Go volumes described by the native tests.
+   Build with CGO_ENABLED=0, go build -p 2 -o /work/kube-burner ./cmd/kube-burner.
+   Copy this binary to the Kind node at /root/kube-burner.
+5. Copy this configuration directory into /root/cluster-attribution in the node.
+   Run from that directory:
+   /root/kube-burner init --kubeconfig /etc/kubernetes/admin.conf
+     --config config.yml --timeout 3m --log-level debug
+   Save the whole directory and an API snapshot of NetworkPolicies afterward.
+   Snapshot running pod image IDs before the proxy is deleted at measurement stop.
+6. Run python src/build_cluster_candidate.py, copy kube-burner-fixed into /root
+   on the node, then run python src/run_cluster_controls.py. This uses the recorded
+   first-run pod snapshot in .local-review/cluster-pods.json to pin workload images.
+   The upstream binary hardcodes the proxy latest tag, so verify its resolved
+   digest in each run. A cached tag alone is not an immutable pin.
+7. Compare metric identity/count against API namespace/name objects, independently
+   of benchmark exit code. Preserve all logs, including setup failures.
+
+Known setup issues in this session:
+- Kind load docker-image python:3.11-alpine failed because the local multi-platform
+  image export lacked a content digest. Direct digest-qualified registry pull worked.
+- /tmp/kube-burner was absent after docker cp on this node. Using /root succeeded.
+  The cause was not determined; do not claim a dynamic-linker failure.
+- Cold first-run pulls and warm controls mean durations are not matched performance
+  estimates. Cardinality and namespace identity are the endpoints.
+
+Copied upstream templates/config derive from Kube-burner commit
+28f74ab467b212cb77e53881c7d34973f5b99a8d, Apache-2.0, see UPSTREAM-LICENSE.
+Original study material remains unlicensed.

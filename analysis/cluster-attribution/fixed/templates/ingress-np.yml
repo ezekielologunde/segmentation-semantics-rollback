@@ -1,0 +1,19 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow
+spec:
+  podSelector:
+    matchLabels:
+      num: "1"
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: network-policy-perf-{{ sub 1 .Iteration }}
+      podSelector:
+        matchLabels:
+          num: "2"
+    ports:
+    - protocol: TCP
+      port: 8080

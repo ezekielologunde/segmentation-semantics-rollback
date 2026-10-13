@@ -1,0 +1,15 @@
+{
+  "registry.k8s.io/coredns/coredns:v1.14.2": "sha256:38667dd9be96c17227adde456e33ad701bdbdc5c6db0272a1d33a929bd8e62d6",
+  "registry.k8s.io/etcd:3.6.8-0": "sha256:ee85eb1f0edd27fd11e3bed20f21a4001ad63107eb2f8d489429648a799c0e86",
+  "docker.io/kindest/kindnetd:v20260528-9350166c": "sha256:e44e5463fce88882cdd5da8c626840ac5d980a30d322c3d4484009f548ba76de",
+  "registry.k8s.io/kube-apiserver-amd64:v1.36.1": "docker.io/library/import-2026-06-02@sha256:48e12aa71c24cf624334ae6f0373f1e1b85825254085475eda149111a926e33c",
+  "registry.k8s.io/kube-controller-manager-amd64:v1.36.1": "docker.io/library/import-2026-06-02@sha256:3fb749e08554fac4cde5dc53397de761b92939d34ead7e3c89248a8bf5b621e4",
+  "registry.k8s.io/networking/kube-network-policies:v1.1.2": "registry.k8s.io/networking/kube-network-policies@sha256:c671f98e444825d57c590c92da1b5e66070917c4d3dff1f9279775e6b73254fe",
+  "registry.k8s.io/kube-proxy-amd64:v1.36.1": "docker.io/library/import-2026-06-02@sha256:834d6b8414308aed626e67979c4665f21b3651e5d8d04ae68d960a4f844b4e81",
+  "registry.k8s.io/kube-scheduler-amd64:v1.36.1": "docker.io/library/import-2026-06-02@sha256:77add4a58677c7fa1a02b42381a024adc860f8d6bbdf38a89d7f8803c116e43c",
+  "docker.io/kindest/local-path-provisioner:v20260521-9fb22683": "sha256:e5e695fbdadac88d9ee437aaabe9419819eecf2b6e2eb26d8b0a27b747bc658a",
+  "quay.io/cloud-bulldozer/netpolvalidator:latest": "quay.io/cloud-bulldozer/netpolvalidator@sha256:ba610feb115ddd2484c96de556246559e32200d799d802b307158c6c3a266518",
+  "quay.io/cloud-bulldozer/sampleapp:latest": "quay.io/cloud-bulldozer/sampleapp@sha256:baa1f409b3f55d577e9b5dbcbbe2e981489a6f037f20777f5733871aedd95754",
+  "quay.io/cloud-bulldozer/netpolproxy:latest": "quay.io/cloud-bulldozer/netpolproxy@sha256:2e804c9108e689d1dc73dbd314af6e11b2f23c8bd8be777bf1895efa7a22886c",
+  "sha256:607dc744833974b365cc338d565e01bb76eaebe25993fe328ce185170bcd8f05": "docker.io/library/python@sha256:d9368b3a5ac59afea7b5d4f2e2aea0941dbf9fdee9c369c5bec00b98244bc929"
+}

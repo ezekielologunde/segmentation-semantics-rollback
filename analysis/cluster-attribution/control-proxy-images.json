@@ -1,0 +1,14 @@
+{
+  "unique": [
+    {
+      "image": "quay.io/cloud-bulldozer/netpolproxy:latest",
+      "imageID": "quay.io/cloud-bulldozer/netpolproxy@sha256:2e804c9108e689d1dc73dbd314af6e11b2f23c8bd8be777bf1895efa7a22886c"
+    }
+  ],
+  "fixed": [
+    {
+      "image": "quay.io/cloud-bulldozer/netpolproxy:latest",
+      "imageID": "quay.io/cloud-bulldozer/netpolproxy@sha256:2e804c9108e689d1dc73dbd314af6e11b2f23c8bd8be777bf1895efa7a22886c"
+    }
+  ]
+}
