@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-13",
+  "decision": "Do not prioritize a novelty-focused journal manuscript for this candidate. Preserve the verified engineering result and move research priority to another literature-gated candidate.",
+  "qualification": "This is a resource-allocation decision from limited evidence, not proof that no publishable extension exists.",
+  "gates": {
+    "generality": "Not supported by the two selected independent source inspections; neither was executed in this stage.",
+    "deployed_threshold_consequence": "Unresolved. The planned controlled-stall experiment did not run. Automatic approval review rejected the combined cluster-restart and source-listing command with only 'blocked by policy'. No attempt to bypass that rejection was made.",
+    "prior_work": "NetCov already models configuration contribution, and ATPG addresses indistinguishable rules. These do not establish prior discovery of this exact implementation defect, but they constrain broad algorithmic novelty claims."
+  },
+  "independent_sources": [
+    {
+      "tool": "Kubernetes perf-tests policy creation enforcement latency",
+      "commit": "ab44a98cbf1d0f75800646d3dbfb705e372431da",
+      "url": "https://github.com/kubernetes/perf-tests/blob/ab44a98cbf1d0f75800646d3dbfb705e372431da/network/tools/network-policy-enforcement-latency/policy-creation-enforcement-latency/test-client/client.go",
+      "review": "Complete client.go inspected, including initialization, target listing, timestamp cache and reporting.",
+      "finding": "Retrieves the named policy through NetworkPolicies(c.HostConfig.HostNamespace).Get and caches it within the configured client. This differs from a cluster-wide name-only policy map.",
+      "limit": "One configured allow policy per client. No runtime test or exhaustive audit; do not assert the tool has no other measurement defects."
+    },
+    {
+      "tool": "Cyclonus",
+      "commit": "12f646fbd7d348dedb538e4bb7f076e4d927d7a6",
+      "url": "https://github.com/mattfenwick/cyclonus/tree/12f646fbd7d348dedb538e4bb7f076e4d927d7a6/pkg/connectivity/probe",
+      "review": "job.go and podstring.go inspected in full; relevant builder and pod identity sections inspected.",
+      "finding": "Job builder uses PodString for source/destination keys; PodString includes namespace/name. Job key additionally includes containers, protocol and port.",
+      "limit": "Connectivity/conformance tool, not an equivalent per-policy latency benchmark. No field-wide prevalence inference or runtime correctness certification."
+    }
+  ],
+  "literature": [
+    {"title":"Test Coverage for Network Configurations", "venue":"NSDI 2023", "url":"https://www.usenix.org/conference/nsdi23/presentation/xu", "evidence":"Primary authors' repository confirms venue; arXiv full text reviewed again for configuration contribution and coverage definitions.", "scope":"Stable configuration/data-plane contribution is related but not identical to transition-latency attribution."},
+    {"title":"Automatic Test Packet Generation", "url":"https://yuba.stanford.edu/~peyman/docs/atpg-conext12.pdf", "evidence":"Previously inspected sections 4.1 and 4.2 retained in attribution-closest-work.json; not freshly re-read in this stage."}
+  ],
+  "retained_claims": [
+    "Pinned Kube-burner deployed baseline merged two policy identities and reported a negative minimum; unique-name and namespace-key controls retained two metrics.",
+    "Synthetic native tests demonstrated an incorrect threshold pass. That consequence has not been demonstrated in a live run.",
+    "Eight deployed attribution assertions and three enforcement gate checks were previously recorded; no new live tests occurred in this stage."
+  ],
+  "not_claimed": ["first discovery", "cross-tool prevalence", "production failure rate", "new attribution algorithm", "journal readiness"],
+  "reopening_conditions": "New independently verified evidence of consequential failures across distinct tools or a precise, literature-supported method beyond standard namespace identity and established contribution reasoning.",
+  "external_actions": "No maintainer contact, upstream issue, pull request or manuscript submission."
+}

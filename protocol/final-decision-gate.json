@@ -1,0 +1,10 @@
+{
+ "purpose":"Final bounded continuation decision, frozen before fault-injected collection",
+ "independent_review":["kubernetes/perf-tests policy-creation-enforcement-latency", "Cyclonus identity handling"],
+ "live_design":"Two runs, baseline then namespace-key candidate. Same two-namespace workload. Ready Max threshold 10s. Measured job QPS 0.1, burst 1; setup QPS unchanged. Pause only the isolated cluster policy-controller process after probe dispatch and before policy creation. Resume one second after the second policy creation log. Always resume in finally. Maximum pause 90s, maximum run 300s.",
+ "rationale":"Inject a known controller stall to separate policy creation timestamps while both flows remain denied. This is a controlled fault, not an observed spontaneous CNI defect or production rate.",
+ "primary":"Baseline exits successfully despite first policy remaining without controller processing for >10s; candidate fails the same threshold and retains both identities.",
+ "evidence":"Unmodified CLI logging, API policy timestamps, controller PID and pause/resume wall times, trace-level proxy results and emitted metrics. Confirm denied initial workload before accepting causal interpretation.",
+ "rejection":"If pause occurs after first policy creation, if first-policy stall is <=10s, if proxy results missing, if controller restarts, or if outcomes do not match, retain inconclusive/failing run without tuning. No sweeps.",
+ "research_decision":"Even a successful induced false pass does not establish novelty. Continue toward a journal only if prior-work comparison and independent-tool evidence support a broader distinct contribution. Otherwise archive as an engineering result and move research priority to the next literature-gated candidate."
+}

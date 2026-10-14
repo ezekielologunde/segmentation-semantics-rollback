@@ -1,0 +1,22 @@
+[
+  {
+    "Hash": "55F094E6D2490BB9B753D1FC80754E81694A2A14990055C1E1BC79CDF085E534",
+    "Path": "C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\.local-review\\independent-review\\cyclonus-builder.go"
+  },
+  {
+    "Hash": "3F499B9E30247758EABA3BC3E1BF2556BBBEB0B5BF0D0CDD38DBC436EB272CB6",
+    "Path": "C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\.local-review\\independent-review\\cyclonus-job.go"
+  },
+  {
+    "Hash": "51778E33AD71FC484D66C6E09485E06404B4ADBE93595CAF86C5EE1977073F5E",
+    "Path": "C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\.local-review\\independent-review\\cyclonus-pod.go"
+  },
+  {
+    "Hash": "050845B5C70C5947EED60B1F9A3024BBA61B7B657569F1BD8EB89047EB30BE7E",
+    "Path": "C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\.local-review\\independent-review\\cyclonus-podstring.go"
+  },
+  {
+    "Hash": "3EB7E8D38AD5FBCA973263485C30E739292B5B496C7D6BECCC8A3E1C0EBF56A6",
+    "Path": "C:\\Users\\WT8\\Projects\\segmentation-semantics-rollback\\.local-review\\independent-review\\perf-client.go"
+  }
+]
